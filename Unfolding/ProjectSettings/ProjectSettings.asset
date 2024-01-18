@@ -159,6 +159,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.PassingTone
     Standalone: com.DefaultCompany.Passing-Tone
   buildNumber:
     Standalone: 0
