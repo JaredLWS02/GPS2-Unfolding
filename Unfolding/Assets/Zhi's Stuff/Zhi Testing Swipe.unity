@@ -157,12 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swiped:
     m_PersistentCalls:
-      m_Calls: []
-  swipeLeft:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeRight:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 254690124}
         m_TargetAssemblyTypeName: SwipeDetection, Assembly-CSharp
@@ -176,12 +170,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  swipeDown:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeUp:
-    m_PersistentCalls:
-      m_Calls: []
+  left: 0
+  right: 1
+  up: 0
+  down: 0
 --- !u!65 &254690125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -394,9 +386,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swiped:
     m_PersistentCalls:
-      m_Calls: []
-  swipeLeft:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 895913827}
         m_TargetAssemblyTypeName: SwipeDetection, Assembly-CSharp
@@ -410,15 +399,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  swipeRight:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeDown:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeUp:
-    m_PersistentCalls:
-      m_Calls: []
+  left: 1
+  right: 0
+  up: 0
+  down: 0
 --- !u!65 &895913828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -539,15 +523,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swiped:
     m_PersistentCalls:
-      m_Calls: []
-  swipeLeft:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeRight:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeDown:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1415193957}
         m_TargetAssemblyTypeName: SwipeDetection, Assembly-CSharp
@@ -561,9 +536,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  swipeUp:
-    m_PersistentCalls:
-      m_Calls: []
+  left: 0
+  right: 0
+  up: 0
+  down: 1
 --- !u!65 &1415193958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -778,18 +754,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swiped:
     m_PersistentCalls:
-      m_Calls: []
-  swipeLeft:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeRight:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeDown:
-    m_PersistentCalls:
-      m_Calls: []
-  swipeUp:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1769114694}
         m_TargetAssemblyTypeName: SwipeDetection, Assembly-CSharp
@@ -803,6 +767,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  left: 0
+  right: 0
+  up: 1
+  down: 0
 --- !u!65 &1769114695
 BoxCollider:
   m_ObjectHideFlags: 0
