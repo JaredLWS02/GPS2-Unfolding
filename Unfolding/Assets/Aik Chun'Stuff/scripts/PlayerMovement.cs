@@ -27,11 +27,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isRotate)
         {
-            if(player.hasPath)
-            {
-                player.isStopped = true;
-                player.ResetPath();
-            }
+            //if(player.hasPath)
+            //{
+            //    player.isStopped = true;
+            //    player.ResetPath();
+            //}
             return;
         }
         for (var i = 0; i < Input.touchCount; ++i)
