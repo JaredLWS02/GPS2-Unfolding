@@ -27,11 +27,12 @@ public class SwipeDetection : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider != null)
+                if (hit.collider.tag == "Puzzle")
                 {
-                    Debug.Log("hit");
                     startPos = Input.GetTouch(0).position;
                     clicked = true;
+                    GameEventManager.isTouchObject = true; 
+
                 }
             }
         }
@@ -68,6 +69,7 @@ public class SwipeDetection : MonoBehaviour
                 }
             }
             clicked = false;
+            GameEventManager.isTouchObject = false;
         }
     }
 

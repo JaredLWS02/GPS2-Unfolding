@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         }
         for (var i = 0; i < Input.touchCount; ++i)
         {
-            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            if (Input.GetTouch(i).phase == TouchPhase.Began && !GameEventManager.isTouchObject)
             {
                 if (Input.GetTouch(i).tapCount == 2)
                 {

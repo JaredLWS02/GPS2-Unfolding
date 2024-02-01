@@ -29,7 +29,7 @@ public class CemeraRotation : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (!isRotating)
+        if (!isRotating && !GameEventManager.isTouchObject)
         {
             pm.isRotate = false;
             if (Input.touchCount > 0)
