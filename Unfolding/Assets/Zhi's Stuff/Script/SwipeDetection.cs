@@ -1,15 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class SwipeDetection : MonoBehaviour
 {
     [SerializeField] private UnityEvent swiped;
     [SerializeField] private bool left, right, up, down;
-    
+
     //Position of where the player is touching
     private Ray ray;
     private RaycastHit hit;
