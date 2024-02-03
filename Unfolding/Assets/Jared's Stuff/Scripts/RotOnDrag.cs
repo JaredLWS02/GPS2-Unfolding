@@ -9,11 +9,10 @@ public class RotOnDrag : MonoBehaviour
 
     private void update()
     {
-        transform.Rotate(Rot * speed * Time.deltaTime);
-    }
+        Rot.transform.Rotate(Rot * -speed * Time.deltaTime);
+        if(Rot.y <= -90)
+        {
 
-    public void RotDown()
-    {
-       Rot = Vector3.down;
+        }
     }
 }
