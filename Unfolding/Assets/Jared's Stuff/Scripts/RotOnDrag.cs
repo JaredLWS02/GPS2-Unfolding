@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotOnDrag : MonoBehaviour
+public class rotOnDrag : MonoBehaviour
 {
-    private Vector3 Rot;
-    private float speed = 10.0f;
+    float rot;
+    float precision = 0.9999f;
+    Quaternion targetAngle = Quaternion.Euler(-91, 0, 0);
 
-    private void update()
+
+    void Update()
     {
-        Rot.transform.Rotate(Rot * -speed * Time.deltaTime);
-        if(Rot.y <= -90)
+        transform.Rotate(rot, 0, 0);
+        if (Mathf.Abs(Quaternion.Dot(this.transform.rotation, targetAngle)) > precision)
         {
-
+            rot = 0;
         }
+    }
+
+    public void rotatoD()
+    {
+        rot = -0.5f;
     }
 }
