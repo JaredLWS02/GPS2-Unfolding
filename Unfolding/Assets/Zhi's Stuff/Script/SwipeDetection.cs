@@ -73,6 +73,59 @@ public class SwipeDetection : MonoBehaviour
             clicked = false;
             GameEventManager.isTouchObject = false;
         }
+
+        #region Mouse Input
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == "Puzzle")
+                {
+                    startPos = Input.mousePosition;
+                    clicked = true;
+                    GameEventManager.isTouchObject = true;
+
+                }
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0) && Physics.Raycast(ray, out hit))
+        {
+            endPos = Input.mousePosition;
+            direction = startPos - endPos;
+
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) //For Left and Right detection
+            {
+                if (direction.x > 0 && hit.collider.GetComponent<SwipeDetection>().left == true)
+                {
+                    Debug.Log("Left");
+                    swiped.Invoke();
+                }
+                else if (direction.x < 0 && hit.collider.GetComponent<SwipeDetection>().right == true)
+                {
+                    Debug.Log("Right");
+                    swiped.Invoke();
+                }
+
+            }
+            else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) //For Up and Down
+            {
+                if (direction.y < 0 && hit.collider.GetComponent<SwipeDetection>().up == true)
+                {
+                    Debug.Log("Up");
+                    swiped.Invoke();
+                }
+                else if (direction.y > 0 && hit.collider.GetComponent<SwipeDetection>().down == true)
+                {
+                    Debug.Log("Down");
+                    swiped.Invoke();
+                }
+            }
+            clicked = false;
+            GameEventManager.isTouchObject = false;
+        }
+        #endregion
     }
 
     public void ColourChange()
