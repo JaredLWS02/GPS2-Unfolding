@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CemeraRotation : MonoBehaviour
@@ -40,16 +37,16 @@ public class CemeraRotation : MonoBehaviour
                     SwipeStartPos = Input.GetTouch(0).position;
                 }
 
-                if (Input.GetTouch(0).phase == TouchPhase.Moved)
+                if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     SwipeEndPos = Input.GetTouch(0).position;
-                    float swipedistance = SwipeEndPos.x - SwipeStartPos.x;
+                    float swipedistance = SwipeEndPos.magnitude - SwipeStartPos.magnitude;
 
                     if (swipedistance > MinSwipeDistance || swipedistance < -MinSwipeDistance)
                     {
                         isRotating = true;
 
-                        if (SwipeStartPos.x < SwipeEndPos.x)
+                        if (swipedistance > 0)
                         {
                             StartCoroutine(RotateCamRight());
                         }
@@ -74,7 +71,7 @@ public class CemeraRotation : MonoBehaviour
         EndRotation = startRotation + RotationAngle;
         while(isRotating)
         {
-            transform.Rotate(0, (int)(RotationSpeed * Time.deltaTime), 0);
+            transform.Rotate(0, (float)(RotationSpeed * Time.deltaTime), 0);
             if (transform.eulerAngles.y >= EndRotation - 10)
             {
                 if (EndRotation >= 360)
@@ -103,7 +100,7 @@ public class CemeraRotation : MonoBehaviour
 
         while(isRotating)
         {
-            transform.Rotate(0, (int)(-RotationSpeed * Time.deltaTime), 0);
+            transform.Rotate(0, (float)(-RotationSpeed * Time.deltaTime), 0);
             if (transform.eulerAngles.y <= EndRotation + 10)
             {
                 if (EndRotation <= -360)
