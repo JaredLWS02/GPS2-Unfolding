@@ -560,6 +560,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6452489667106848265, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -6452489667106848265, guid: e16c88d85e5155541a4077a35e592cc9,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -568,6 +573,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: -4450682217215839954, guid: e16c88d85e5155541a4077a35e592cc9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: -4450682217215839954, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -615,6 +625,11 @@ PrefabInstance:
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 779027105427512259, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
+      propertyPath: m_SortingOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 779027105427512259, guid: e16c88d85e5155541a4077a35e592cc9,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -623,6 +638,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 3714651950072975323, guid: e16c88d85e5155541a4077a35e592cc9,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3714651950072975323, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
