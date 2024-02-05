@@ -2157,11 +2157,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 268003569}
-  targetMark: {fileID: 253529424}
-  rayDistance: 50
+  targetMark: {fileID: 0}
+  rayDistance: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 0
 --- !u!195 &268003569
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4223,7 +4223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nav: {fileID: 2507750492020547473}
   data: {fileID: 0}
-  v: {fileID: 786024357}
+  v: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
