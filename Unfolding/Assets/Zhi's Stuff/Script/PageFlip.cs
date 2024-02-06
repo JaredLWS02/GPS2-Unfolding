@@ -1,15 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PageFlip : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI DebuggingText;
+    [SerializeField] private float sensitivity = 10000;
+
     private Ray ray;
     private RaycastHit hit;
 
     private Vector2 startPos, pos;
+    private float frame;
+    private Animator anim;
 
     private bool clicked;
+
+    private void Start()
+    {
+        anim = GetComponentInParent<Animator>();
+        frame = 0;
+        anim.speed = 0;
+    }
 
     void Update()
     {
@@ -33,24 +47,42 @@ public class PageFlip : MonoBehaviour
         }
 
         Touch touch;
-        Animator anim = GetComponentInParent<Animator>();
-        float frame = 0;
+        
 
         if (clicked)
         {
             touch = Input.GetTouch(0);
-            anim.speed = 0;
             Debug.Log("It works, plus" + anim.name);
 
             if (Input.touches[0].phase == TouchPhase.Moved)
             {
                 pos = touch.position - startPos;
 
-                frame += (-pos.x) / 360;
+                frame += (-pos.x) / sensitivity;
                 Debug.Log(frame);
                 anim.Play("IFlip", 0, frame);
             }
         }
+        else
+        {
+            if(frame > 0.5)
+            {
+                frame += 0.01f;
+            }
+            else if(frame < 0.5)
+            {
+                frame -= 0.01f;
+            }
+
+            anim.Play("IFlip", 0, frame);
+        }
+
+        if(frame > 1)
+            frame = 1;
+        else if(frame < 0)
+                frame = 0;
+
+        DebuggingText.text = frame.ToString();
     }
 // BUGS I FOUND
 /* - When flipping the other way, it will instantly snap to the end, probably due to how it is coded in positional based, rather than like an additive type of way. I'm not sure why it won't let me but
