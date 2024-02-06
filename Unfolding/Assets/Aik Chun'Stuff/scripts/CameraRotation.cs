@@ -23,6 +23,7 @@ public class CemeraRotation : MonoBehaviour
 
     private void Update()
     {
+
     }
     private void LateUpdate()
     {
@@ -31,33 +32,36 @@ public class CemeraRotation : MonoBehaviour
             pm.isRotate = false;
             if (Input.touchCount > 0)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
-                {
-                    startRotation = transform.eulerAngles.y;
-                    SwipeStartPos = Input.GetTouch(0).position;
-                }
-
-                if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                {
-                    SwipeEndPos = Input.GetTouch(0).position;
-                    float swipedistance = SwipeEndPos.magnitude - SwipeStartPos.magnitude;
-
-                    if (swipedistance > MinSwipeDistance || swipedistance < -MinSwipeDistance)
+                    if (Input.GetTouch(0).phase == TouchPhase.Began)
                     {
-                        isRotating = true;
+                        startRotation = transform.eulerAngles.y;
+                        SwipeStartPos = Input.GetTouch(0).position;
+                    }
 
-                        if (swipedistance > 0)
+                    if(Input.touchCount < 2)
+                {
+                    if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                    {
+                        SwipeEndPos = Input.GetTouch(0).position;
+                        float swipedistance = SwipeEndPos.magnitude - SwipeStartPos.magnitude;
+
+                        if (swipedistance > MinSwipeDistance || swipedistance < -MinSwipeDistance)
                         {
-                            StartCoroutine(RotateCamRight());
+                            isRotating = true;
+
+                            if (swipedistance > 0)
+                            {
+                                StartCoroutine(RotateCamRight());
+                            }
+                            else
+                            {
+                                StartCoroutine(RotateCamLeft());
+                            }
                         }
-                        else
-                        {
-                            StartCoroutine(RotateCamLeft());
-                        }
+
                     }
 
                 }
-
             }
         }
         else
@@ -81,7 +85,6 @@ public class CemeraRotation : MonoBehaviour
                 }
                 transform.rotation = Quaternion.Euler(0, EndRotation, 0);
                 isRotating = false;
-
             }
             yield return null;
         }
