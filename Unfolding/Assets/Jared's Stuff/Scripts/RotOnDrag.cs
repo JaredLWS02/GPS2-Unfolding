@@ -8,8 +8,6 @@ public class rotOnDrag : MonoBehaviour
     float precision = 0.9999f;
     bool rotAble = true;
     Quaternion targetAngle = Quaternion.Euler(-91, 0, 0);
-    Quaternion targetAngle2 = Quaternion.Euler(-1, 0, 0);
-
 
     void Update()
     {
@@ -21,14 +19,6 @@ public class rotOnDrag : MonoBehaviour
                 rot = 0;
             }
         }
-        else if (rotAble == true)
-        {
-            if (Mathf.Abs(Quaternion.Dot(this.transform.rotation, targetAngle2)) > precision)
-            {
-                rot = 0;
-            }
-        }
-
     }
 
     public void rotatoD()
@@ -38,10 +28,22 @@ public class rotOnDrag : MonoBehaviour
             rot = -0.5f;
             rotAble = false;
         }
-        //else if (rotAble == false)
-        //{
-        //    rot = 0.5f;
-        //    rotAble = true;
-        //}
     }
+
+
+    //Quaternion targetAngle2 = Quaternion.Euler(-1, 0, 0);
+
+    //else if (rotAble == true)
+    //{
+    //    if (Mathf.Abs(Quaternion.Dot(this.transform.rotation, targetAngle2)) > precision)
+    //    {
+    //        rot = 0;
+    //    }
+    //}
+
+    //else if (rotAble == false)
+    //{
+    //    rot = 0.5f;
+    //    rotAble = true;
+    //}
 }
