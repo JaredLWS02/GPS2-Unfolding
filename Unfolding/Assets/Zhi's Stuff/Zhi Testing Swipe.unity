@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 254690127}
   - component: {fileID: 254690126}
   - component: {fileID: 254690125}
-  - component: {fileID: 254690124}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Puzzle
@@ -143,37 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &254690124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254690123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a3179809c6c034cac3be94b0f778a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swiped:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 254690124}
-        m_TargetAssemblyTypeName: SwipeDetection, Assembly-CSharp
-        m_MethodName: ColourChange
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  left: 0
-  right: 1
-  up: 0
-  down: 0
 --- !u!65 &254690125
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -364,7 +332,7 @@ GameObject:
   - component: {fileID: 895913830}
   - component: {fileID: 895913829}
   - component: {fileID: 895913828}
-  - component: {fileID: 895913827}
+  - component: {fileID: 895913832}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Puzzle
@@ -372,37 +340,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &895913827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895913826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a3179809c6c034cac3be94b0f778a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swiped:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 895913827}
-        m_TargetAssemblyTypeName: SwipeDetection, Assembly-CSharp
-        m_MethodName: ColourChange
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  left: 1
-  right: 0
-  up: 0
-  down: 0
 --- !u!65 &895913828
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -489,6 +426,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &895913832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895913826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ccc0fbf9307c34a9a8be4a20259440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventList:
+  - Event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 895913832}
+          m_TargetAssemblyTypeName: SwipeDetectionTestNew, Assembly-CSharp
+          m_MethodName: ColourChange
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    direction: 0
 --- !u!1 &1415193956
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +467,6 @@ GameObject:
   - component: {fileID: 1415193960}
   - component: {fileID: 1415193959}
   - component: {fileID: 1415193958}
-  - component: {fileID: 1415193957}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Puzzle
@@ -509,37 +474,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1415193957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415193956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a3179809c6c034cac3be94b0f778a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swiped:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1415193957}
-        m_TargetAssemblyTypeName: SwipeDetection, Assembly-CSharp
-        m_MethodName: ColourChange
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  left: 0
-  right: 0
-  up: 0
-  down: 1
 --- !u!65 &1415193958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -732,7 +666,6 @@ GameObject:
   - component: {fileID: 1769114697}
   - component: {fileID: 1769114696}
   - component: {fileID: 1769114695}
-  - component: {fileID: 1769114694}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Puzzle
@@ -740,37 +673,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1769114694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1769114693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a3179809c6c034cac3be94b0f778a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swiped:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1769114694}
-        m_TargetAssemblyTypeName: SwipeDetection, Assembly-CSharp
-        m_MethodName: ColourChange
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  left: 0
-  right: 0
-  up: 1
-  down: 0
 --- !u!65 &1769114695
 BoxCollider:
   m_ObjectHideFlags: 0
