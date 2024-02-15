@@ -7,7 +7,8 @@ public class rotOnDrag : MonoBehaviour
     float rotx,roty,rotz;
     float precision = 0.9999f;
     bool rotAble = true;
-    Quaternion targetAngle = Quaternion.Euler(-91, 0, 0);
+    float xVal = 0;
+    Quaternion targetAngle;
 
     void Update()
     {
@@ -17,36 +18,39 @@ public class rotOnDrag : MonoBehaviour
             if (Mathf.Abs(Quaternion.Dot(this.transform.rotation, targetAngle)) > precision)
             {
                 rotx = 0;
-                roty = 0;
-                rotz = 0;
+                rotAble = true;
+                //roty = 0;
+                //rotz = 0;
             }
         }
     }
 
     public void rotatoD()
     {
-        if(rotAble == true)
+        if (rotAble == true)
         {
+            xVal = xVal - 90;
+            targetAngle = Quaternion.Euler(-1+xVal, 0, 0);
             rotx = -0.5f;
             rotAble = false;
         }
     }
 
-    public void rotatoY()
-    {
-        if (rotAble == true)
-        {
-            roty = -0.5f;
-            rotAble = false;
-        }
-    }
+    //public void rotatoY()
+    //{
+    //    if (rotAble == true)
+    //    {
+    //        roty = -0.5f;
+    //        rotAble = false;
+    //    }
+    //}
 
-    public void rotatoZ()
-    {
-        if (rotAble == true)
-        {
-            rotz = -0.5f;
-            rotAble = false;
-        }
-    }
+    //public void rotatoZ()
+    //{
+    //    if (rotAble == true)
+    //    {
+    //        rotz = -0.5f;
+    //        rotAble = false;
+    //    }
+    //}
 }
