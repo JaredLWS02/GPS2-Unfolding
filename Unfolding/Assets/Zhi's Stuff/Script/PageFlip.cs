@@ -7,7 +7,12 @@ using UnityEngine;
 public class PageFlip : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI DebuggingText;
-    [SerializeField] private float sensitivity = 10000;
+    [SerializeField] private float sensitivity = 5000;
+    [SerializeField] private string pageAnimName;
+    [SerializeField] private string nextPageAnimName;
+    [SerializeField] private Animator nextPageAnimator;
+
+    public bool fliped;
 
     private Ray ray;
     private RaycastHit hit;
@@ -23,6 +28,7 @@ public class PageFlip : MonoBehaviour
         anim = GetComponentInParent<Animator>();
         frame = 0;
         anim.speed = 0;
+        nextPageAnimator.speed = 0;
     }
 
     void Update()
@@ -48,11 +54,9 @@ public class PageFlip : MonoBehaviour
 
         Touch touch;
         
-
         if (clicked)
         {
             touch = Input.GetTouch(0);
-            Debug.Log("It works, plus" + anim.name);
 
             if (Input.touches[0].phase == TouchPhase.Moved)
             {
@@ -60,7 +64,8 @@ public class PageFlip : MonoBehaviour
 
                 frame += (-pos.x) / sensitivity;
                 Debug.Log(frame);
-                anim.Play("IFlip", 0, frame);
+                anim.Play(pageAnimName, 0, frame);
+                nextPageAnimator.Play(nextPageAnimName, 0, frame);
             }
         }
         else
@@ -74,13 +79,22 @@ public class PageFlip : MonoBehaviour
                 frame -= 0.01f;
             }
 
-            anim.Play("IFlip", 0, frame);
+            anim.Play(pageAnimName, 0, frame);
+            nextPageAnimator.Play(nextPageAnimName, 0, frame);
         }
 
-        if(frame > 1)
+        if (frame >= 1)
+        {
             frame = 1;
-        else if(frame < 0)
-                frame = 0;
+            fliped = true;
+        }
+        else if (frame <= 0)
+        {
+            frame = 0;
+            fliped = true;
+        }
+        else
+            fliped = false;
 
         DebuggingText.text = frame.ToString();
     }
@@ -90,5 +104,4 @@ public class PageFlip : MonoBehaviour
  *  - Loading and deloading assets in. I have to find a way to instance stuff so that that pages can be renewed on the other side
  *   - Yes, I know, the mouse doesn't work, bohoo.
  */
-
 }
