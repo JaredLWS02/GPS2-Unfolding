@@ -2,11 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class CemeraRotation : MonoBehaviour
+public class CameraRotation : MonoBehaviour
 {
     private Vector2 SwipeStartPos;
     private Vector2 SwipeEndPos;
-    private bool rightSwipe = false;
     private bool isRotating = false;
     private float startRotation;
     private float EndRotation;
@@ -15,6 +14,7 @@ public class CemeraRotation : MonoBehaviour
     [SerializeField] private float RotationSpeed;
     [SerializeField] private float RotationAngle;
     [SerializeField] private PlayerMovement pm;
+    [SerializeField] private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +76,7 @@ public class CemeraRotation : MonoBehaviour
         while(isRotating)
         {
             transform.Rotate(0, (float)(RotationSpeed * Time.deltaTime), 0);
+            player.transform.Rotate(0, (float)(RotationSpeed * Time.deltaTime), 0);
             if (transform.eulerAngles.y >= EndRotation - 10)
             {
                 if (EndRotation >= 360)
@@ -84,6 +85,7 @@ public class CemeraRotation : MonoBehaviour
                     EndRotation = 0;
                 }
                 transform.rotation = Quaternion.Euler(0, EndRotation, 0);
+                player.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
                 isRotating = false;
             }
             yield return null;
@@ -104,6 +106,7 @@ public class CemeraRotation : MonoBehaviour
         while(isRotating)
         {
             transform.Rotate(0, (float)(-RotationSpeed * Time.deltaTime), 0);
+            player.transform.Rotate(0, (float)(-RotationSpeed * Time.deltaTime), 0);
             if (transform.eulerAngles.y <= EndRotation + 10)
             {
                 if (EndRotation <= -360)
@@ -112,6 +115,7 @@ public class CemeraRotation : MonoBehaviour
                     EndRotation = 0;
                 }
                 transform.rotation = Quaternion.Euler(0, EndRotation, 0);
+                player.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
                 isRotating = false;
             }
             yield return null;
