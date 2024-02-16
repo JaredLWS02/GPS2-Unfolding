@@ -28,7 +28,8 @@ public class PageFlip : MonoBehaviour
         anim = GetComponentInParent<Animator>();
         frame = 0;
         anim.speed = 0;
-        nextPageAnimator.speed = 0;
+        if (nextPageAnimator != null )
+            nextPageAnimator.speed = 0;
     }
 
     void Update()
@@ -65,7 +66,8 @@ public class PageFlip : MonoBehaviour
                 frame += (-pos.x) / sensitivity;
                 Debug.Log(frame);
                 anim.Play(pageAnimName, 0, frame);
-                nextPageAnimator.Play(nextPageAnimName, 0, frame);
+                if (nextPageAnimator != null)
+                    nextPageAnimator.Play(nextPageAnimName, 0, frame);
             }
         }
         else
@@ -80,7 +82,8 @@ public class PageFlip : MonoBehaviour
             }
 
             anim.Play(pageAnimName, 0, frame);
-            nextPageAnimator.Play(nextPageAnimName, 0, frame);
+            if(nextPageAnimator != null)
+                nextPageAnimator.Play(nextPageAnimName, 0, frame);
         }
 
         if (frame >= 1)

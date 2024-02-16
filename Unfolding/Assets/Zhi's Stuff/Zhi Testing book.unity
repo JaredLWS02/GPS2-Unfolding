@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebuggingText: {fileID: 921952549}
   sensitivity: 50000
-  pageAnimName: 
+  pageAnimName: IFlip
   nextPageAnimName: 
   nextPageAnimator: {fileID: 0}
   fliped: 0
