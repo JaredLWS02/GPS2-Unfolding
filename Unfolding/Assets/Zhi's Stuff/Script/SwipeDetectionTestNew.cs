@@ -8,36 +8,21 @@ using Random = UnityEngine.Random;
 
 public class SwipeDetectionTestNew : MonoBehaviour
 {
-    public List<SwipeEvent> EventList = new List<SwipeEvent>();
-
-    public enum Direction
-    {
-        Left = 0,
-        Right = 1,
-        Up = 2,
-        Down = 3
-    };
-
-    [Serializable]
-    public class SwipeEvent
-    {
-        public UnityEvent Event = new UnityEvent();
-        public Direction direction = new Direction();
-    }
+    [SerializeField] private UnityEvent swipedLeft, swipedRight, swipedUp, swipedDown;
+    [SerializeField] private bool left, right, up, down;
 
     //Position of where the player is touching
     private Ray ray;
     private RaycastHit hit;
 
     //Position of where the player is swiping to
-    private Vector2 startPos, endPos, pos;
+    private Vector2 startPos, endPos, direction;
     private bool clicked;
 
     private GameObject gameObjectHit;
 
     private void Update()
     {
-        //WHEN CLICK
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
             ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
@@ -48,56 +33,106 @@ public class SwipeDetectionTestNew : MonoBehaviour
                     startPos = Input.GetTouch(0).position;
                     clicked = true;
                     GameEventManager.isTouchObject = true;
+
                 }
             }
         }
-        Direction direction;
-        //WHEN LIFT FINGER
         if (clicked == true && Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended && Physics.Raycast(ray, out hit))
         {
             endPos = Input.touches[0].position;
-            pos = startPos - endPos;
+            direction = startPos - endPos;
 
-            if (Mathf.Abs(pos.x) > Mathf.Abs(pos.y)) //For Left and Right detection
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) //For Left and Right detection
             {
-                if (pos.x > 0)
+                if (direction.x > 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().left == true)
                 {
-                    direction = Direction.Left;
-                    DoEvent(direction);
+                    Debug.Log("Left");
+                    if (swipedLeft != null)
+                        swipedLeft.Invoke();
                 }
-                    
-                else if (pos.x < 0)
+                else if (direction.x < 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().right == true)
                 {
-                    direction = Direction.Right;
-                    DoEvent(direction);
+                    Debug.Log("Right");
+                    if (swipedRight != null)
+                        swipedRight.Invoke();
                 }
+
             }
-            else if (Mathf.Abs(pos.x) < Mathf.Abs(pos.y)) //For Up and Down
+            else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) //For Up and Down
             {
-                if (pos.y < 0)
-                { 
-                    direction = Direction.Up;
-                    DoEvent(direction);
-                }
-                    
-                else if (pos.y > 0)
+                if (direction.y < 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().up == true)
                 {
-                    direction = Direction.Down;
-                    DoEvent(direction);
+                    Debug.Log("Up");
+                    if (swipedUp != null)
+                        swipedUp.Invoke();
+                }
+                else if (direction.y > 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().down == true)
+                {
+                    Debug.Log("Down");
+                    if (swipedDown != null)
+                        swipedDown.Invoke();
                 }
             }
             clicked = false;
             GameEventManager.isTouchObject = false;
         }
-    }
 
-    private void DoEvent(Direction way)
-    {
-        foreach(SwipeEvent dir in EventList)
+        #region Mouse Input
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (dir.direction == way)
-                dir.Event.Invoke();
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.tag == "Puzzle")
+                {
+                    startPos = Input.mousePosition;
+                    clicked = true;
+                    GameEventManager.isTouchObject = true;
+
+                }
+            }
         }
+
+        if (Input.GetKeyUp(KeyCode.Mouse0) && Physics.Raycast(ray, out hit))
+        {
+            endPos = Input.mousePosition;
+            direction = startPos - endPos;
+
+            if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) //For Left and Right detection
+            {
+                if (direction.x > 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().left == true)
+                {
+                    Debug.Log("Left");
+                    if (swipedLeft != null)
+                        swipedLeft.Invoke();
+                }
+                else if (direction.x < 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().right == true)
+                {
+                    Debug.Log("Right");
+                    if (swipedRight != null)
+                        swipedRight.Invoke();
+                }
+
+            }
+            else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) //For Up and Down
+            {
+                if (direction.y < 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().up == true)
+                {
+                    Debug.Log("Up");
+                    if (swipedUp != null)
+                        swipedUp.Invoke();
+                }
+                else if (direction.y > 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().down == true)
+                {
+                    Debug.Log("Down");
+                    if (swipedDown != null)
+                        swipedDown.Invoke();
+                }
+            }
+            clicked = false;
+            GameEventManager.isTouchObject = false;
+        }
+        #endregion
     }
 
     public void ColourChange()

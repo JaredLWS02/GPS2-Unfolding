@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Aik Chun'Stuff/nyak Stage Scene.unity
     guid: 2b31f46a93f4dfa4d94652ed3f3ba234
   - enabled: 1
