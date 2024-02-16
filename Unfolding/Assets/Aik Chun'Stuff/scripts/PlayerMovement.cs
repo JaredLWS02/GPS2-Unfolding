@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     private List<Vector3> points = new List<Vector3>();
 
+    private Animator playerAnim;
+    private bool isChecking;
+
     [SerializeField] private NavMeshAgent player;
     [SerializeField] private GameObject targetMark;
     [SerializeField] private float rayDistance;
@@ -21,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     {
         //lr = GetComponent<LineRenderer>();
+        playerAnim = GetComponent<Animator>();
         isRotate = false;
         tapToMove = true;
     }
@@ -61,6 +66,13 @@ public class PlayerMovement : MonoBehaviour
                         if(!hit.collider.CompareTag("Obstacles"))
                         {
                             player.SetDestination(hit.point);
+                            //targetMark.transform.position = player.pathEndPosition;
+                            if (!isChecking)
+                            {
+                                playerAnim.SetTrigger("isMoving");
+                                //targetMark.gameObject.SetActive(true);
+                                StartCoroutine(checkMove());    
+                            }
 
                         }
                         //StartCoroutine(visualizeMovement());
@@ -70,17 +82,21 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(player.velocity.magnitude > 0)
+        if (player.velocity.magnitude > 0)
         {
             targetMark.transform.position = player.pathEndPosition;
             targetMark.gameObject.SetActive(true);
             //lr.positionCount = player.path.corners.Length;
             //lr.SetPositions(player.path.corners);
         }
-        else
-        {
-            targetMark.gameObject.SetActive(false);
-        }
+        //else
+        //{
+        //    targetMark.gameObject.SetActive(false);
+        //    //if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("Walk animation"))
+        //    //{
+        //    //    playerAnim.SetBool("isMoving", false);
+        //    //}
+        //}
 
         //}
 
@@ -102,6 +118,23 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    private IEnumerator checkMove()
+    {
+        isChecking = true;
+        //targetMark.transform.position = player.pathEndPosition;
+        yield return new WaitForSeconds(0.1f);
+        //while (player.velocity.magnitude > 0)
+        //{
+        //    yield return null;
+        //}
+        while (player.hasPath && player.velocity.magnitude > 0)
+        {
+            yield return null;
+        }
+        playerAnim.SetTrigger("Stop");
+        targetMark.gameObject.SetActive(false);
+        isChecking = false;
+    }
     //private IEnumerator visualizeMovement()
     //{
     //    yield return new WaitForSeconds(0.1f);
@@ -124,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
     //    if (points[0].y < points[1].y) // going up
     //    {
     //        Vector3 distance = points[1] - points[0];
-           
+
     //        //float length = distance.magnitude;
 
 

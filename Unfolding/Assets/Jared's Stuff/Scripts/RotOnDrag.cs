@@ -4,46 +4,53 @@ using UnityEngine;
 
 public class rotOnDrag : MonoBehaviour
 {
-    float rot;
+    float rotx,roty,rotz;
     float precision = 0.9999f;
     bool rotAble = true;
-    Quaternion targetAngle = Quaternion.Euler(-91, 0, 0);
+    float xVal = 0;
+    Quaternion targetAngle;
 
     void Update()
     {
-        transform.Rotate(rot, 0, 0);
+        transform.Rotate(rotx, 0, 0);
         if(rotAble == false)
         {
             if (Mathf.Abs(Quaternion.Dot(this.transform.rotation, targetAngle)) > precision)
             {
-                rot = 0;
+                rotx = 0;
+                rotAble = true;
+                //roty = 0;
+                //rotz = 0;
             }
         }
     }
 
     public void rotatoD()
     {
-        if(rotAble == true)
+        if (rotAble == true)
         {
-            rot = -0.5f;
+            xVal = xVal - 90;
+            targetAngle = Quaternion.Euler(-1+xVal, 0, 0);
+            rotx = -0.5f;
             rotAble = false;
         }
     }
 
-
-    //Quaternion targetAngle2 = Quaternion.Euler(-1, 0, 0);
-
-    //else if (rotAble == true)
+    //public void rotatoY()
     //{
-    //    if (Mathf.Abs(Quaternion.Dot(this.transform.rotation, targetAngle2)) > precision)
+    //    if (rotAble == true)
     //    {
-    //        rot = 0;
+    //        roty = -0.5f;
+    //        rotAble = false;
     //    }
     //}
 
-    //else if (rotAble == false)
+    //public void rotatoZ()
     //{
-    //    rot = 0.5f;
-    //    rotAble = true;
+    //    if (rotAble == true)
+    //    {
+    //        rotz = -0.5f;
+    //        rotAble = false;
+    //    }
     //}
 }
