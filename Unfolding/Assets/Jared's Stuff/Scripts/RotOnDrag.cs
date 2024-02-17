@@ -8,7 +8,7 @@ public class rotOnDrag : MonoBehaviour
     float precision = 0.9999f;
     bool rotAble = true;
     float xVal = 0;
-    float yVal = 0;
+   // float yVal = 0;
     Quaternion targetAngle;
 
     void Update()

@@ -7,5 +7,5 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField] private GameObject
+    [SerializeField] private GameObject obj;
 }
