@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using UnityEngine;
 using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
@@ -11,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
     }
     private RaycastHit hit;
     private bool tapToMove;
-
-    private List<Vector3> points = new List<Vector3>();
 
     private Animator playerAnim;
     private bool isChecking;
@@ -55,50 +54,26 @@ public class PlayerMovement : MonoBehaviour
                 tapToMove = false;
             }
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            if(tapToMove)
             {
-                if(tapToMove)
+                if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-
+                
                     if (Physics.Raycast(touchRay, out hit, rayDistance, groundLayer))
                     {
                         if(!hit.collider.CompareTag("Obstacles"))
                         {
                             player.SetDestination(hit.point);
-                            //targetMark.transform.position = player.pathEndPosition;
-                            if (!isChecking)
-                            {
-                                playerAnim.SetTrigger("isMoving");
-                                //targetMark.gameObject.SetActive(true);
-                                StartCoroutine(checkMove());    
-                            }
-
+                            StartCoroutine(Move());
                         }
                         //StartCoroutine(visualizeMovement());
-
+                
                     }
                 }
+
             }
         }
-
-        if (player.velocity.magnitude > 0)
-        {
-            targetMark.transform.position = player.pathEndPosition;
-            targetMark.gameObject.SetActive(true);
-            //lr.positionCount = player.path.corners.Length;
-            //lr.SetPositions(player.path.corners);
-        }
-        //else
-        //{
-        //    targetMark.gameObject.SetActive(false);
-        //    //if (playerAnim.GetCurrentAnimatorStateInfo(0).IsName("Walk animation"))
-        //    //{
-        //    //    playerAnim.SetBool("isMoving", false);
-        //    //}
-        //}
-
-        //}
 
         //for (var i = 0; i < Input.touchCount; ++i)
         //{
@@ -117,16 +92,31 @@ public class PlayerMovement : MonoBehaviour
         //}
 
     }
+    private IEnumerator Move()
+    {
+        float playerpos = gameObject.transform.position.x;
+        yield return new WaitForSeconds(0.1f);
+        targetMark.transform.position = player.pathEndPosition;
+        targetMark.gameObject.SetActive(true);
 
+        if (playerpos > player.pathEndPosition.x)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (playerpos < player.pathEndPosition.x)
+        {
+            gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        }
+        if (!isChecking)
+        {
+            playerAnim.SetTrigger("isMoving");
+            StartCoroutine(checkMove());
+        }
+    }
     private IEnumerator checkMove()
     {
         isChecking = true;
-        //targetMark.transform.position = player.pathEndPosition;
-        yield return new WaitForSeconds(0.1f);
-        //while (player.velocity.magnitude > 0)
-        //{
-        //    yield return null;
-        //}
         while (player.hasPath && player.velocity.magnitude > 0)
         {
             yield return null;

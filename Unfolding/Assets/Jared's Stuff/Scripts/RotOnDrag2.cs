@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rotOnDrag : MonoBehaviour
+public class RotOnDrag2 : MonoBehaviour
 {
-    [SerializeField] private GameObject obj1;
-    private float rotx;
+    [SerializeField] private GameObject obj2;
+    private float rotx2;
     float precision = 0.9999f;
     bool rotAble = true;
     float xVal = 0;
@@ -13,35 +13,35 @@ public class rotOnDrag : MonoBehaviour
 
     private void Update()
     {
-        obj1.transform.Rotate(rotx, 0, 0);
-        if(rotAble == false)
+        obj2.transform.Rotate(rotx2, 0, 0);
+        if (rotAble == false)
         {
-            if (Mathf.Abs(Quaternion.Dot(obj1.transform.rotation, targetAngle)) > precision)
+            if (Mathf.Abs(Quaternion.Dot(obj2.transform.rotation, targetAngle)) > precision)
             {
-                rotx = 0;
+                rotx2 = 0;
                 rotAble = true;
             }
         }
     }
-    //obj 1
-    public void rotatoD()
+    //obj3
+    public void rotatoD1()
     {
         if (rotAble == true)
         {
             xVal = xVal - 120;
             targetAngle = Quaternion.Euler(-1 + xVal, 0, 0);
-            rotx = -0.5f;
+            rotx2 = -0.5f;
             rotAble = false;
         }
     }
 
-    public void rotatoU()
+    public void rotatoU1()
     {
         if (rotAble == true)
         {
             xVal = xVal + 120;
             targetAngle = Quaternion.Euler(1 + xVal, 0, 0);
-            rotx = 0.5f;
+            rotx2 = 0.5f;
             rotAble = false;
         }
     }
