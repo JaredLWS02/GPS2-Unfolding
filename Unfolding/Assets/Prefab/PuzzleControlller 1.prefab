@@ -465,7 +465,7 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8006373546879995071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
         m_MethodName: rotatoU1
         m_Mode: 1
@@ -480,7 +480,7 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8006373546879995071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
         m_MethodName: rotatoD1
         m_Mode: 1
@@ -1955,7 +1955,7 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8006373546879995071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
         m_MethodName: rotatoU1
         m_Mode: 1
@@ -1970,7 +1970,7 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8006373546879995071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
         m_MethodName: rotatoD1
         m_Mode: 1
@@ -2727,7 +2727,7 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8006373546879995071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
         m_MethodName: rotatoU1
         m_Mode: 1
@@ -2742,7 +2742,7 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8006373546879995071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
         m_MethodName: rotatoD1
         m_Mode: 1
@@ -3524,7 +3524,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5397358467227584593}
-  - component: {fileID: 8006373546879995071}
   m_Layer: 0
   m_Name: Rotatable(x-axis negative) (2)
   m_TagString: Untagged
@@ -3793,25 +3792,8 @@ PrefabInstance:
     - {fileID: 7645284332532331085, guid: 6d3f3744d147e2b42ac73b0baa109093, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9118830666959376502, guid: 6d3f3744d147e2b42ac73b0baa109093,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8006373546879995071}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d3f3744d147e2b42ac73b0baa109093, type: 3}
---- !u!114 &8006373546879995071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8539463570797308272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 275ecfdeb241f4848bcc256d3706ef0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj2: {fileID: 8539463570797308272}
 --- !u!1001 &3964622624850096486
 PrefabInstance:
   m_ObjectHideFlags: 0
