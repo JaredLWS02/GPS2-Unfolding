@@ -11,6 +11,5 @@ public class GameEventManager : MonoBehaviour
     private void Start()
     {
         isTouchObject = false;
-        selectedPage = "Page Edge 1";
     }
 }
