@@ -6,14 +6,13 @@ public class rotOnDrag : MonoBehaviour
 {
     [SerializeField] private GameObject obj1;
     private float rotx;
-    float precision = 0.9999f;
-    bool rotAble = true;
-    float xVal = 0;
-    Quaternion targetAngle;
+    private float precision = 0.9999f;
+    private bool rotAble = true;
+    private float xVal = 0;
+    private Quaternion targetAngle;
 
     private void Update()
     {
-
         if(rotAble == false)
         {
             obj1.transform.Rotate(rotx, 0, 0);
@@ -27,6 +26,7 @@ public class rotOnDrag : MonoBehaviour
     //obj 1
     public void rotatoD()
     {
+        Debug.Log("Did rotate");
         if (rotAble == true)
         {
             xVal = xVal - 120;
