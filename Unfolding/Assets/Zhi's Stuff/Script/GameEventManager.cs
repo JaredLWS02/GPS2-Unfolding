@@ -6,9 +6,11 @@ using UnityEngine;
 public class GameEventManager : MonoBehaviour
 {
     public static bool isTouchObject;
+    public static string selectedPage;
 
     private void Awake()
     {
         isTouchObject = false;
+        selectedPage = string.Empty;
     }
 }

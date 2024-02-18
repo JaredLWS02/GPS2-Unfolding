@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,11 +9,10 @@ public class PageFlip : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI DebuggingText;
     [SerializeField] private float sensitivity = 5000;
-    [SerializeField] private string pageAnimName;
-    [SerializeField] private string nextPageAnimName;
     [SerializeField] private Animator nextPageAnimator;
+    [SerializeField] private Animator prevPageAnimator;
 
-    public bool fliped;
+    public bool clicked;
 
     private Ray ray;
     private RaycastHit hit;
@@ -21,8 +21,6 @@ public class PageFlip : MonoBehaviour
     private float frame;
     private Animator anim;
 
-    private bool clicked;
-
     private void Start()
     {
         anim = GetComponentInParent<Animator>();
@@ -30,9 +28,20 @@ public class PageFlip : MonoBehaviour
         anim.speed = 0;
         if (nextPageAnimator != null )
             nextPageAnimator.speed = 0;
+        if (prevPageAnimator != null)
+            prevPageAnimator.speed = 0;
     }
 
     void Update()
+    {
+        GetTouch();
+        if (hit.collider != null)
+        {
+            Flipping();
+        }
+    }
+
+    private void GetTouch()
     {
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
@@ -41,9 +50,11 @@ public class PageFlip : MonoBehaviour
             {
                 if (hit.collider)
                 {
-                    startPos = Input.touches[0].position;
+                    GameEventManager.selectedPage = hit.collider.name;
                     clicked = true;
+                    startPos = Input.touches[0].position;
                     GameEventManager.isTouchObject = true;
+
                 }
             }
         }
@@ -52,59 +63,71 @@ public class PageFlip : MonoBehaviour
             GameEventManager.isTouchObject = false;
             clicked = false;
         }
-
+    }
+    private void Flipping()
+    {
         Touch touch;
-        
-        if (clicked)
+
+        #region Flipping Base
+
+        if (clicked && Input.touchCount> 0 && hit.collider.name == GameEventManager.selectedPage)
         {
             touch = Input.GetTouch(0);
-
-            if (Input.touches[0].phase == TouchPhase.Moved)
+            if (hit.collider.gameObject.name == this.name)
             {
-                pos = touch.position - startPos;
+                if (Input.touches[0].phase == TouchPhase.Moved)
+                {
+                    pos = touch.position - startPos;
 
-                frame += (-pos.x) / sensitivity;
-                Debug.Log(frame);
-                anim.Play(pageAnimName, 0, frame);
-                if (nextPageAnimator != null)
-                    nextPageAnimator.Play(nextPageAnimName, 0, frame);
+                    frame += (-pos.x) / sensitivity;
+                    anim.Play("IFlip", 0, frame);
+                    if (nextPageAnimator != null)
+                        nextPageAnimator.Play("IOpen", 0, frame);
+                    //Problem is around here that cause it to not play this frame
+                    if (prevPageAnimator != null)
+                        prevPageAnimator.Play("IOpen", 0, frame);
+                }
             }
         }
-        else
+        else if (hit.collider.name == GameEventManager.selectedPage)
         {
-            if(frame > 0.5)
+            if (frame > 0.5)
             {
                 frame += 0.01f;
             }
-            else if(frame < 0.5)
+            else if (frame < 0.5)
             {
                 frame -= 0.01f;
             }
 
-            anim.Play(pageAnimName, 0, frame);
-            if(nextPageAnimator != null)
-                nextPageAnimator.Play(nextPageAnimName, 0, frame);
+            anim.Play("IFlip", 0, frame);
+            
+            if (nextPageAnimator != null)
+                nextPageAnimator.Play("IOpen", 0, frame);
+            if (prevPageAnimator != null)
+                prevPageAnimator.Play("IOpen", 0, frame);
+
+            clicked = false;
         }
 
+        #endregion
+
+        #region Limit Flip
         if (frame >= 1)
         {
             frame = 1;
-            fliped = true;
         }
         else if (frame <= 0)
         {
             frame = 0;
-            fliped = true;
         }
-        else
-            fliped = false;
-
-        DebuggingText.text = frame.ToString();
+        #endregion
     }
-// BUGS I FOUND
-/* - When flipping the other way, it will instantly snap to the end, probably due to how it is coded in positional based, rather than like an additive type of way. I'm not sure why it won't let me but
- * I'll just have make do with this for now.
- *  - Loading and deloading assets in. I have to find a way to instance stuff so that that pages can be renewed on the other side
- *   - Yes, I know, the mouse doesn't work, bohoo.
- */
+
+    // BUGS I FOUND
+    /* - When flipping the other way, it will instantly snap to the end, probably due to how it is coded in positional based, rather than like an additive type of way. I'm not sure why it won't let me but
+     * I'll just have make do with this for now.
+     *  - Loading and deloading assets in. I have to find a way to instance stuff so that that pages can be renewed on the other side
+     *   - Yes, I know, the mouse doesn't work, bohoo.
+     */
 }
