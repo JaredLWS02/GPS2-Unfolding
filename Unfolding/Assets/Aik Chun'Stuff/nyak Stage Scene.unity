@@ -2162,6 +2162,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 55
+  camera: {fileID: 0}
 --- !u!195 &268003569
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2531,6 +2532,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 55
+  camera: {fileID: 1837017774}
 --- !u!95 &608652414
 Animator:
   serializedVersion: 5
