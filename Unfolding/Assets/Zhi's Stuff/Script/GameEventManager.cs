@@ -8,9 +8,8 @@ public class GameEventManager : MonoBehaviour
     public static bool isTouchObject;
     public static string selectedPage;
 
-    private void Awake()
+    private void Start()
     {
         isTouchObject = false;
-        selectedPage = string.Empty;
     }
 }

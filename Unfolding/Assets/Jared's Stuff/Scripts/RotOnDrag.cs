@@ -13,9 +13,10 @@ public class rotOnDrag : MonoBehaviour
 
     private void Update()
     {
-        obj1.transform.Rotate(rotx, 0, 0);
+
         if(rotAble == false)
         {
+            obj1.transform.Rotate(rotx, 0, 0);
             if (Mathf.Abs(Quaternion.Dot(obj1.transform.rotation, targetAngle)) > precision)
             {
                 rotx = 0;
