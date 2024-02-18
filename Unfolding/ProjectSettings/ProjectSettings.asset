@@ -68,7 +68,7 @@ PlayerSettings:
   disableDepthAndStencilBuffers: 0
   androidStartInFullscreen: 1
   androidRenderOutsideSafeArea: 1
-  androidUseSwappy: 1
+  androidUseSwappy: 0
   androidBlitType: 2
   androidResizableWindow: 0
   androidDefaultWindowWidth: 1920
@@ -161,7 +161,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.TauFuFahStudios.UnFolding
-    Standalone: com.DefaultCompany.Passing-Tone
+    Standalone: com.Tau-Fu-Fah-Studios.UnFolding
   buildNumber:
     Standalone: 0
     VisionOS: 0
