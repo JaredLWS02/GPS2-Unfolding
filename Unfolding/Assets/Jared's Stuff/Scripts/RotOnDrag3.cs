@@ -6,10 +6,10 @@ public class RotOnDrag3 : MonoBehaviour
 {
     [SerializeField] private GameObject obj3;
     private float rotx3;
-    float precision = 0.9999f;
-    bool rotAble = true;
-    float xVal = 0;
-    Quaternion targetAngle;
+    private float precision = 0.9999f;
+    private bool rotAble = true;
+    private float xVal = 0;
+    private Quaternion targetAngle;
 
     private void Update()
     {

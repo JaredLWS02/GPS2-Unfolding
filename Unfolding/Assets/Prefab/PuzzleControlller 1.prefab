@@ -465,9 +465,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
+        m_MethodName: rotatoU1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -480,9 +480,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
+        m_MethodName: rotatoD1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -741,9 +741,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU3
+      - m_Target: {fileID: 8465006928108175103}
+        m_TargetAssemblyTypeName: RotOnDrag3, Assembly-CSharp
+        m_MethodName: rotatoU2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -756,9 +756,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD3
+      - m_Target: {fileID: 8465006928108175103}
+        m_TargetAssemblyTypeName: RotOnDrag3, Assembly-CSharp
+        m_MethodName: rotatoD2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1127,9 +1127,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU1
+      - m_Target: {fileID: 6182329290602678817}
+        m_TargetAssemblyTypeName: rotOnDrag, Assembly-CSharp
+        m_MethodName: rotatoU
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1142,9 +1142,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD1
+      - m_Target: {fileID: 6182329290602678817}
+        m_TargetAssemblyTypeName: rotOnDrag, Assembly-CSharp
+        m_MethodName: rotatoD
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1293,9 +1293,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU3
+      - m_Target: {fileID: 8465006928108175103}
+        m_TargetAssemblyTypeName: RotOnDrag3, Assembly-CSharp
+        m_MethodName: rotatoU2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1308,9 +1308,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD3
+      - m_Target: {fileID: 8465006928108175103}
+        m_TargetAssemblyTypeName: RotOnDrag3, Assembly-CSharp
+        m_MethodName: rotatoD2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1789,9 +1789,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU1
+      - m_Target: {fileID: 6182329290602678817}
+        m_TargetAssemblyTypeName: rotOnDrag, Assembly-CSharp
+        m_MethodName: rotatoU
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1804,9 +1804,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD1
+      - m_Target: {fileID: 6182329290602678817}
+        m_TargetAssemblyTypeName: rotOnDrag, Assembly-CSharp
+        m_MethodName: rotatoD
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1955,9 +1955,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
+        m_MethodName: rotatoU1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1970,9 +1970,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
+        m_MethodName: rotatoD1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2121,9 +2121,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU1
+      - m_Target: {fileID: 6182329290602678817}
+        m_TargetAssemblyTypeName: rotOnDrag, Assembly-CSharp
+        m_MethodName: rotatoU
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2136,9 +2136,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD1
+      - m_Target: {fileID: 6182329290602678817}
+        m_TargetAssemblyTypeName: rotOnDrag, Assembly-CSharp
+        m_MethodName: rotatoD
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2727,9 +2727,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
+        m_MethodName: rotatoU1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2742,9 +2742,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RotOnDrag2, Assembly-CSharp
+        m_MethodName: rotatoD1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2770,8 +2770,8 @@ GameObject:
   - component: {fileID: 6570359669679169174}
   - component: {fileID: 8465006928108175103}
   m_Layer: 0
-  m_Name: Rotatable3
-  m_TagString: Puzzle
+  m_Name: Rotatable(x-axis negative) (3)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2786,7 +2786,7 @@ Transform:
   m_GameObject: {fileID: 5487361113787861842}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.57, y: 118.27979, z: -181.12688}
+  m_LocalPosition: {x: 12.42, y: 118.27979, z: -181.12688}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3040,9 +3040,9 @@ MonoBehaviour:
   swipedUp:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateU3
+      - m_Target: {fileID: 8465006928108175103}
+        m_TargetAssemblyTypeName: RotOnDrag3, Assembly-CSharp
+        m_MethodName: rotatoU2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3055,9 +3055,9 @@ MonoBehaviour:
   swipedDown:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3878456563881181780}
-        m_TargetAssemblyTypeName: RotationOnDrag, Assembly-CSharp
-        m_MethodName: rotateD3
+      - m_Target: {fileID: 8465006928108175103}
+        m_TargetAssemblyTypeName: RotOnDrag3, Assembly-CSharp
+        m_MethodName: rotatoD2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3193,10 +3193,9 @@ GameObject:
   - component: {fileID: 8767300719785381990}
   - component: {fileID: 2358443779090384361}
   - component: {fileID: 4596588438014246379}
-  - component: {fileID: 3878456563881181780}
   m_Layer: 0
   m_Name: PuzzleControlller 1
-  m_TagString: Puzzle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3257,21 +3256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a0ffdb18df00b45b5bd9fc09eeaa3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj3: {fileID: 5487361113787861842}
---- !u!114 &3878456563881181780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6151624276142638688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ff69378fd2b7a94a9fb74268526a67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj1: {fileID: 6758913157064905571}
-  obj2: {fileID: 8539463570797308272}
   obj3: {fileID: 5487361113787861842}
 --- !u!1 &6260968866584997603
 GameObject:
@@ -3505,8 +3489,8 @@ GameObject:
   - component: {fileID: 8407895493540494107}
   - component: {fileID: 6182329290602678817}
   m_Layer: 0
-  m_Name: Rotatable1
-  m_TagString: Puzzle
+  m_Name: Rotatable(x-axis negative) (1)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3521,7 +3505,7 @@ Transform:
   m_GameObject: {fileID: 6758913157064905571}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.98, y: 118.27979, z: -181.12688}
+  m_LocalPosition: {x: -4.8, y: 118.27979, z: -181.12688}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3540,10 +3524,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5397358467227584593}
-  - component: {fileID: 8006373546879995071}
   m_Layer: 0
-  m_Name: Rotatable2
-  m_TagString: Puzzle
+  m_Name: Rotatable(x-axis negative) (2)
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3558,7 +3541,7 @@ Transform:
   m_GameObject: {fileID: 8539463570797308272}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 118.27979, z: -181.12688}
+  m_LocalPosition: {x: 4.76066, y: 118.27979, z: -181.12688}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3809,25 +3792,8 @@ PrefabInstance:
     - {fileID: 7645284332532331085, guid: 6d3f3744d147e2b42ac73b0baa109093, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9118830666959376502, guid: 6d3f3744d147e2b42ac73b0baa109093,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8006373546879995071}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d3f3744d147e2b42ac73b0baa109093, type: 3}
---- !u!114 &8006373546879995071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8539463570797308272}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 275ecfdeb241f4848bcc256d3706ef0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obj2: {fileID: 8539463570797308272}
 --- !u!1001 &3964622624850096486
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3943,7 +3909,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758913157064905571}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad366824b0927124293b3d8f134cc864, type: 3}
   m_Name: 
@@ -4094,7 +4060,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5487361113787861842}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4a0ffdb18df00b45b5bd9fc09eeaa3a, type: 3}
   m_Name: 

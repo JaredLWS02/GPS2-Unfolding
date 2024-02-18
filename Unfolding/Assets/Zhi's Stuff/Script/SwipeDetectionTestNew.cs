@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 
 public class SwipeDetectionTestNew : MonoBehaviour
@@ -30,6 +31,7 @@ public class SwipeDetectionTestNew : MonoBehaviour
             {
                 if (hit.collider.tag == "Puzzle")
                 {
+                    GameObject currentGO = hit.collider.gameObject;
                     startPos = Input.GetTouch(0).position;
                     clicked = true;
                     GameEventManager.isTouchObject = true;
@@ -44,13 +46,13 @@ public class SwipeDetectionTestNew : MonoBehaviour
 
             if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) //For Left and Right detection
             {
-                if (direction.x > 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().left == true)
+                if (direction.x > 0 && hit.collider.gameObject == this.gameObject)
                 {
                     Debug.Log("Left");
                     if (swipedLeft != null)
                         swipedLeft.Invoke();
                 }
-                else if (direction.x < 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().right == true)
+                else if (direction.x < 0 && hit.collider.gameObject == this.gameObject)
                 {
                     Debug.Log("Right");
                     if (swipedRight != null)
@@ -60,13 +62,13 @@ public class SwipeDetectionTestNew : MonoBehaviour
             }
             else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) //For Up and Down
             {
-                if (direction.y < 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().up == true)
+                if (direction.y < 0 && hit.collider.gameObject == this.gameObject)
                 {
                     Debug.Log("Up");
                     if (swipedUp != null)
                         swipedUp.Invoke();
                 }
-                else if (direction.y > 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().down == true)
+                else if (direction.y > 0 && hit.collider.gameObject == this.gameObject)
                 {
                     Debug.Log("Down");
                     if (swipedDown != null)
@@ -92,7 +94,6 @@ public class SwipeDetectionTestNew : MonoBehaviour
                 }
             }
         }
-
         if (Input.GetKeyUp(KeyCode.Mouse0) && Physics.Raycast(ray, out hit))
         {
             endPos = Input.mousePosition;
@@ -100,13 +101,13 @@ public class SwipeDetectionTestNew : MonoBehaviour
 
             if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) //For Left and Right detection
             {
-                if (direction.x > 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().left == true)
+                if (direction.x > 0 && hit.collider.gameObject == this.gameObject)
                 {
                     Debug.Log("Left");
                     if (swipedLeft != null)
                         swipedLeft.Invoke();
                 }
-                else if (direction.x < 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().right == true)
+                else if (direction.x < 0 && hit.collider.gameObject == this.gameObject)
                 {
                     Debug.Log("Right");
                     if (swipedRight != null)
@@ -116,13 +117,13 @@ public class SwipeDetectionTestNew : MonoBehaviour
             }
             else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) //For Up and Down
             {
-                if (direction.y < 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().up == true)
+                if (direction.y < 0 && hit.collider.gameObject == this.gameObject)
                 {
                     Debug.Log("Up");
                     if (swipedUp != null)
                         swipedUp.Invoke();
                 }
-                else if (direction.y > 0 && hit.collider.GetComponent<SwipeDetectionTestNew>().down == true)
+                else if (direction.y > 0 && hit.collider.gameObject == this.gameObject)
                 {
                     Debug.Log("Down");
                     if (swipedDown != null)
