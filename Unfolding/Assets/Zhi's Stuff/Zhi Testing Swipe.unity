@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,8 +135,9 @@ GameObject:
   - component: {fileID: 254690127}
   - component: {fileID: 254690126}
   - component: {fileID: 254690125}
+  - component: {fileID: 254690129}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Cube
   m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,6 +229,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254690129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254690123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ccc0fbf9307c34a9a8be4a20259440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipedLeft:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 254690129}
+        m_TargetAssemblyTypeName: SwipeDetectionTestNew, Assembly-CSharp
+        m_MethodName: ColourChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  swipedRight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 254690129}
+        m_TargetAssemblyTypeName: SwipeDetectionTestNew, Assembly-CSharp
+        m_MethodName: ColourChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  swipedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  swipedDown:
+    m_PersistentCalls:
+      m_Calls: []
+  left: 1
+  right: 1
+  up: 0
+  down: 0
 --- !u!1 &622271010
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,23 +491,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ccc0fbf9307c34a9a8be4a20259440, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventList:
-  - Event:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 895913832}
-          m_TargetAssemblyTypeName: SwipeDetectionTestNew, Assembly-CSharp
-          m_MethodName: ColourChange
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    direction: 0
+  swipedLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  swipedRight:
+    m_PersistentCalls:
+      m_Calls: []
+  swipedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  swipedDown:
+    m_PersistentCalls:
+      m_Calls: []
+  left: 0
+  right: 0
+  up: 0
+  down: 0
 --- !u!1 &1415193956
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,8 +519,9 @@ GameObject:
   - component: {fileID: 1415193960}
   - component: {fileID: 1415193959}
   - component: {fileID: 1415193958}
+  - component: {fileID: 1415193962}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: Cube
   m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,6 +613,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1415193962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415193956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ccc0fbf9307c34a9a8be4a20259440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipedLeft:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1415193962}
+        m_TargetAssemblyTypeName: SwipeDetectionTestNew, Assembly-CSharp
+        m_MethodName: ColourChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  swipedRight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1415193962}
+        m_TargetAssemblyTypeName: SwipeDetectionTestNew, Assembly-CSharp
+        m_MethodName: ColourChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  swipedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  swipedDown:
+    m_PersistentCalls:
+      m_Calls: []
+  left: 1
+  right: 1
+  up: 0
+  down: 0
 --- !u!1 &1490700718
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,6 +771,7 @@ GameObject:
   - component: {fileID: 1769114697}
   - component: {fileID: 1769114696}
   - component: {fileID: 1769114695}
+  - component: {fileID: 1769114699}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Puzzle
@@ -759,6 +865,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1769114699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769114693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45ccc0fbf9307c34a9a8be4a20259440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipedLeft:
+    m_PersistentCalls:
+      m_Calls: []
+  swipedRight:
+    m_PersistentCalls:
+      m_Calls: []
+  swipedUp:
+    m_PersistentCalls:
+      m_Calls: []
+  swipedDown:
+    m_PersistentCalls:
+      m_Calls: []
+  left: 0
+  right: 0
+  up: 0
+  down: 0
 --- !u!1 &2031143111
 GameObject:
   m_ObjectHideFlags: 0

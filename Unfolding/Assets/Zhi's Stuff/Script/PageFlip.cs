@@ -25,15 +25,11 @@ public class PageFlip : MonoBehaviour
     {
         anim = GetComponentInParent<Animator>();
         frame = 0;
-        anim.speed = 0;
-        if (nextPageAnimator != null )
-            nextPageAnimator.speed = 0;
-        if (prevPageAnimator != null)
-            prevPageAnimator.speed = 0;
     }
 
     void Update()
     {
+        DebuggingText.text = GameEventManager.selectedPage;
         GetTouch();
         if (hit.collider != null)
         {
@@ -78,18 +74,16 @@ public class PageFlip : MonoBehaviour
                 if (Input.touches[0].phase == TouchPhase.Moved)
                 {
                     pos = touch.position - startPos;
-
                     frame += (-pos.x) / sensitivity;
                     anim.Play("IFlip", 0, frame);
                     if (nextPageAnimator != null)
                         nextPageAnimator.Play("IOpen", 0, frame);
-                    //Problem is around here that cause it to not play this frame
                     if (prevPageAnimator != null)
                         prevPageAnimator.Play("IOpen", 0, frame);
                 }
             }
         }
-        else if (hit.collider.name == GameEventManager.selectedPage)
+        else
         {
             if (frame > 0.5)
             {
@@ -100,16 +94,18 @@ public class PageFlip : MonoBehaviour
                 frame -= 0.01f;
             }
 
-            anim.Play("IFlip", 0, frame);
-            
-            if (nextPageAnimator != null)
-                nextPageAnimator.Play("IOpen", 0, frame);
-            if (prevPageAnimator != null)
-                prevPageAnimator.Play("IOpen", 0, frame);
+            if (hit.collider.name == GameEventManager.selectedPage)
+            {
+                anim.Play("IFlip", 0, frame);
+
+                if (nextPageAnimator != null)
+                    nextPageAnimator.Play("IOpen", 0, frame);
+                if (prevPageAnimator != null)
+                    prevPageAnimator.Play("IOpen", 0, frame);
+            }
 
             clicked = false;
         }
-
         #endregion
 
         #region Limit Flip
