@@ -39,9 +39,13 @@ public class PageFlip : MonoBehaviour
 
     private void GetTouch()
     {
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        //if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        if (Input.GetMouseButtonDown(0))
         {
-            ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+            if (Input.touches[0].position != null)
+                ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+            if (Input.mousePosition != null && Input.touches[0].position == null)
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider)
@@ -54,7 +58,8 @@ public class PageFlip : MonoBehaviour
                 }
             }
         }
-        else if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)
+        //else if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)
+        else if (Input.GetMouseButtonUp(0))
         {
             GameEventManager.isTouchObject = false;
             clicked = false;
@@ -66,7 +71,8 @@ public class PageFlip : MonoBehaviour
 
         #region Flipping Base
 
-        if (clicked && Input.touchCount> 0 && hit.collider.name == GameEventManager.selectedPage)
+        //if (clicked && Input.touchCount> 0 && hit.collider.name == GameEventManager.selectedPage)
+        if (clicked && hit.collider.name == GameEventManager.selectedPage)
         {
             touch = Input.GetTouch(0);
             if (hit.collider.gameObject.name == this.name)
@@ -79,7 +85,7 @@ public class PageFlip : MonoBehaviour
                     if (nextPageAnimator != null)
                         nextPageAnimator.Play("IOpen", 0, frame);
                     if (prevPageAnimator != null)
-                        prevPageAnimator.Play("IOpen", 0, frame);
+                        prevPageAnimator.Play("IClose", 0, frame);
                 }
             }
         }
@@ -101,7 +107,7 @@ public class PageFlip : MonoBehaviour
                 if (nextPageAnimator != null)
                     nextPageAnimator.Play("IOpen", 0, frame);
                 if (prevPageAnimator != null)
-                    prevPageAnimator.Play("IOpen", 0, frame);
+                    prevPageAnimator.Play("IClose", 0, frame);
             }
 
             clicked = false;
