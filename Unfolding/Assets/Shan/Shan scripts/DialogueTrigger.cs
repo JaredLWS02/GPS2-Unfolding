@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     private bool playerDetected;
 
     //Detect trigger with player
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         //if we triggered the player enable player detected and shhow indicator
         if (collision.tag == "Player")
@@ -18,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit(Collider collision)
     {
         //if we lost trigger with the player disable player detected and hide indicator
         if (collision.tag == "Player")

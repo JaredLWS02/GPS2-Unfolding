@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 341926425524918695}
   - component: {fileID: 8013843859398810621}
   - component: {fileID: 2163758387053408975}
+  - component: {fileID: 2724859894718870470}
   m_Layer: 0
   m_Name: NPC model
   m_TagString: Untagged
@@ -99,7 +100,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -107,6 +108,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2724859894718870470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930322642189392069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695d807a43f88f34b88ea622c40f7565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueScript: {fileID: 211452153089038315}
 --- !u!1 &8486503198316071074
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +222,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1f4402c2640ce4da318e90d007e9de, type: 3}
+--- !u!114 &211452153089038315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8961156238022283654, guid: fb1f4402c2640ce4da318e90d007e9de,
+    type: 3}
+  m_PrefabInstance: {fileID: 9129735986757305965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41533983c48a3242b07edeeb18d7e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4539613400318011332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4633259363208520105, guid: fb1f4402c2640ce4da318e90d007e9de,
