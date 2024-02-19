@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4440221, g: 0.49316514, b: 0.5722316, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3280,7 +3280,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 37.4
+  field of view: 46.1
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -3306,13 +3306,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943336066}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23276861, y: -0, z: -0, w: 0.97253215}
-  m_LocalPosition: {x: -5.7, y: 15.2, z: -21.1}
+  m_LocalRotation: {x: 0.06821872, y: -0, z: -0, w: 0.9976704}
+  m_LocalPosition: {x: -3.11, y: 3.874, z: -7.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1095421979}
-  m_LocalEulerAnglesHint: {x: 26.92, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.823, y: 0, z: 0}
 --- !u!1 &965128809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3742,8 +3742,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095421979}
-  - component: {fileID: 1095421980}
-  - component: {fileID: 1095421981}
   m_Layer: 0
   m_Name: CameraRotater
   m_TagString: Untagged
@@ -3767,39 +3765,6 @@ Transform:
   - {fileID: 943336069}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1095421980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095421978}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a2c2fb48b5180941acc6953ee092e0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinSwipeDistance: 50
-  RotationSpeed: 180
-  RotationAngle: 90
-  pm: {fileID: 1128967358}
-  player: {fileID: 1128967355}
---- !u!114 &1095421981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1095421978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef521af3fc99b24e8593e52f51fb5b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1128967355}
-  offset: {x: 10, y: 0, z: 0}
-  smoothSpeed: 0.5
-  limit: 16
 --- !u!1001 &1111527279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4036,40 +4001,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: frog animatin shyte
       objectReference: {fileID: 0}
-    - target: {fileID: -8653719598885068355, guid: e16c88d85e5155541a4077a35e592cc9,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.19999999
+      value: 0.080389716
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.19999999
+      value: 0.080389716
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.19999999
+      value: 0.080389716
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.03
+      value: -4.76
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.001
+      value: 1.304
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.39
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
@@ -4105,6 +4065,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7221020487405985688, guid: e16c88d85e5155541a4077a35e592cc9,
         type: 3}
