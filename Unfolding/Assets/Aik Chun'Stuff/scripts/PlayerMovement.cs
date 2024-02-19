@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
 using UnityEngine;
 using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
