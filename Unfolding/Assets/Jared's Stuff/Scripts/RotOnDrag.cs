@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing.Text;
+using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class rotOnDrag : MonoBehaviour
 {
     [SerializeField] private GameObject obj1;
     [SerializeField] private float rotationXSpeed;
+    [SerializeField] private NavMeshSurface mesh;
+    public float rotY, rotZ; 
     private float rotx;
     private float precision = 0.9999f;
     private bool rotAble = true;
@@ -21,6 +26,7 @@ public class rotOnDrag : MonoBehaviour
             {
                 rotx = 0;
                 rotAble = true;
+                mesh.UpdateNavMesh(mesh.navMeshData);   
             }
         }
     }
@@ -31,7 +37,7 @@ public class rotOnDrag : MonoBehaviour
         if (rotAble == true)
         {
             xVal = xVal - 120;
-            targetAngle = Quaternion.Euler(-1 + xVal, 0, 0);
+            targetAngle = Quaternion.Euler(-1 + xVal, rotY, rotZ);
             rotx = -rotationXSpeed;
             rotAble = false;
         }
@@ -42,7 +48,7 @@ public class rotOnDrag : MonoBehaviour
         if (rotAble == true)
         {
             xVal = xVal + 120;
-            targetAngle = Quaternion.Euler(1 + xVal, 0, 0);
+            targetAngle = Quaternion.Euler(1 + xVal, rotY, rotZ);
             rotx = rotationXSpeed;
             rotAble = false;
         }
