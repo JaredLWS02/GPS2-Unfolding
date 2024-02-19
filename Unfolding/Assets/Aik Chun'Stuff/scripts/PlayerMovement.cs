@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isRotate || GameEventManager.isTouchObject)
+        if (isRotate)
         {
             //if(player.hasPath)
             //{
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.touchCount > 0)
         {
-            if (Input.GetTouch(0).phase == TouchPhase.Began /*&& !GameEventManager.isTouchObject*/)
+            if (Input.GetTouch(0).phase == TouchPhase.Began && !GameEventManager.isTouchObject)
             {
                 tapToMove = true;
             }

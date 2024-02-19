@@ -5,6 +5,7 @@ using UnityEngine;
 public class rotOnDrag : MonoBehaviour
 {
     [SerializeField] private GameObject obj1;
+    [SerializeField] private float rotationXSpeed;
     private float rotx;
     private float precision = 0.9999f;
     private bool rotAble = true;
@@ -31,7 +32,7 @@ public class rotOnDrag : MonoBehaviour
         {
             xVal = xVal - 120;
             targetAngle = Quaternion.Euler(-1 + xVal, 0, 0);
-            rotx = -0.5f;
+            rotx = -rotationXSpeed;
             rotAble = false;
         }
     }
@@ -42,7 +43,7 @@ public class rotOnDrag : MonoBehaviour
         {
             xVal = xVal + 120;
             targetAngle = Quaternion.Euler(1 + xVal, 0, 0);
-            rotx = 0.5f;
+            rotx = rotationXSpeed;
             rotAble = false;
         }
     }
