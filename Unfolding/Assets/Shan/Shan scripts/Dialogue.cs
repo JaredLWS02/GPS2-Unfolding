@@ -24,14 +24,13 @@ public class Dialogue : MonoBehaviour
     public float writingSpeed;
     //wait for next boolean
     private bool waitForNext;
-    
-   
-    void Awake()
+
+    private void Awake()
     {
-        ToggleIndicator(false);
         ToggleWindow(false);
+        ToggleIndicator(false);
     }
-    
+
     private void ToggleWindow(bool show) //
     {
         window.SetActive(show);
