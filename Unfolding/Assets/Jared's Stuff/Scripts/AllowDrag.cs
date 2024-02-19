@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class AllowDrag : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Behaviour rotS;
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerStay(Collider col)
     {
-        
+        if(col.gameObject.CompareTag("Player"))
+        {
+            rotS.enabled = false;
+        }
     }
 }
