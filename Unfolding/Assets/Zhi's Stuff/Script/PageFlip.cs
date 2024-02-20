@@ -13,6 +13,7 @@ public class PageFlip : MonoBehaviour
     [SerializeField] private Animator prevPageAnimator;
 
     public bool clicked;
+    public static bool flipped;
 
     private Ray ray;
     private RaycastHit hit;
@@ -53,7 +54,7 @@ public class PageFlip : MonoBehaviour
                     GameEventManager.selectedPage = hit.collider.name;
                     clicked = true;
                     startPos = Input.touches[0].position;
-                    GameEventManager.isTouchObject = true;
+                    GameEventManager.isTouchPage = true;
 
                 }
             }
@@ -61,7 +62,7 @@ public class PageFlip : MonoBehaviour
         //else if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)
         else if (Input.GetMouseButtonUp(0))
         {
-            GameEventManager.isTouchObject = false;
+            GameEventManager.isTouchPage = false;
             clicked = false;
         }
     }
@@ -72,7 +73,7 @@ public class PageFlip : MonoBehaviour
         #region Flipping Base
 
         //if (clicked && Input.touchCount> 0 && hit.collider.name == GameEventManager.selectedPage)
-        if (clicked && hit.collider.name == GameEventManager.selectedPage)
+        if (Input.touchCount > 0 && clicked && hit.collider.name == GameEventManager.selectedPage)
         {
             touch = Input.GetTouch(0);
             if (hit.collider.gameObject.name == this.name)
@@ -115,6 +116,15 @@ public class PageFlip : MonoBehaviour
         #endregion
 
         #region Limit Flip
+        if (frame >= 0.99 || frame <= 0.01)
+        {
+            flipped = true;
+        }
+        else
+        {
+            flipped = false;
+        }
+
         if (frame >= 1)
         {
             frame = 1;
@@ -123,6 +133,7 @@ public class PageFlip : MonoBehaviour
         {
             frame = 0;
         }
+
         #endregion
     }
 
