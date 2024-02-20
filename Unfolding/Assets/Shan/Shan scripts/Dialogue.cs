@@ -68,13 +68,17 @@ public class Dialogue : MonoBehaviour
 
     public void EndDialogue() //
     {
-        started = waitForNext = false;
-
+        //started is disable
+        started = false;
+        //disable wait for next
+        waitForNext = false;
+        //Hide the window
         ToggleWindow(false);
+        //Stop all Ienumerators
+        StopAllCoroutines();
+
         ToggleIndicator(false);
-
-
-        //StopAllCoroutines();
+        
     }
 
 
@@ -115,12 +119,16 @@ public class Dialogue : MonoBehaviour
                 
                 index++;
 
+                //Check if we are in the scope of dialogues list
                 if (index < dialogues.Count - 1)
                 {
+                    //ifso fetch the next dialogue
                     GetDialogue(index);
                 }
-                else // If not, end the dialogue process
+                else 
                 {
+                // If not, end the dialogue process
+                    ToggleIndicator(true);
                     EndDialogue();
                 }
             }

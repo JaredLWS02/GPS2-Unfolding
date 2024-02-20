@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 211452153089038315, guid: edfc57110d28f234ba5592f0801006b3,
         type: 3}
+      propertyPath: writingSpeed
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 211452153089038315, guid: edfc57110d28f234ba5592f0801006b3,
+        type: 3}
       propertyPath: dialogues.Array.size
       value: 3
       objectReference: {fileID: 0}
