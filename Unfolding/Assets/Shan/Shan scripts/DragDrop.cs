@@ -88,7 +88,7 @@ public class DragDrop : MonoBehaviour
     public GameObject objectToDrag;
     public GameObject ObjectDragToPosition;
     public float Dropdistance;
-    public bool Islocked;
+    public bool islocked = false;
 
     private Vector2 objectInitPos;
     private Quaternion objectInitRot;
@@ -103,7 +103,7 @@ public class DragDrop : MonoBehaviour
 
     public void RotateObject()
     {
-        if (!Islocked)
+        if (!islocked)
         {
             objectToDrag.transform.Rotate(Vector3.forward, 90f); // Rotate clockwise by 90 degrees
         }
@@ -111,7 +111,7 @@ public class DragDrop : MonoBehaviour
 
     public void DragObject()
     {
-        if (!Islocked)
+        if (!islocked)
         {
             objectToDrag.transform.position = Input.mousePosition;
         }
@@ -122,13 +122,11 @@ public class DragDrop : MonoBehaviour
         float Distance = Vector3.Distance(objectToDrag.transform.position, ObjectDragToPosition.transform.position);
         if (Distance < Dropdistance && IsCorrectRotation())
         {
-            Islocked = true;
-            objectToDrag.transform.position = ObjectDragToPosition.transform.position;
+            LockObject();
         }
         else
         {
-            objectToDrag.transform.position = objectInitPos;
-            objectToDrag.transform.rotation = objectInitRot;
+            ResetObject();
         }
     }
 
@@ -137,4 +135,22 @@ public class DragDrop : MonoBehaviour
         // Check if the object's rotation is close to the desired rotation (within a small tolerance)
         return Quaternion.Angle(objectToDrag.transform.rotation, ObjectDragToPosition.transform.rotation) < 1f;
     }
+
+    public void LockObject()
+    {
+        islocked = true;
+        objectToDrag.transform.position = ObjectDragToPosition.transform.position;
+    }
+
+    public void UnlockObject()
+    {
+        islocked = false;
+    }
+
+    private void ResetObject()
+    {
+        objectToDrag.transform.position = objectInitPos;
+        objectToDrag.transform.rotation = objectInitRot;
+    }
 }
+

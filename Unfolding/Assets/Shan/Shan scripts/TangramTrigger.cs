@@ -5,17 +5,22 @@ using UnityEngine;
 public class TangramTrigger : MonoBehaviour
 {
     public Canvas tangramCanvas;
-    public GameObject objectToDisable;
     public List<GameObject> tangramPieces;
     public Transform respawnPoint;
 
     private bool puzzleComplete = false;
+    private bool canvasOpened = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !puzzleComplete)
+        if (other.CompareTag("Player") && !puzzleComplete && !canvasOpened)
         {
             // Activate the tangram canvas
             tangramCanvas.gameObject.SetActive(true);
+            canvasOpened = true;
+
+            // Disable this trigger object
+            gameObject.SetActive(false);
+
             CheckPuzzleCompletion();
         }
     }
@@ -23,12 +28,14 @@ public class TangramTrigger : MonoBehaviour
     {
         foreach (GameObject piece in tangramPieces)
         {
-            if (!piece.GetComponent<DragDrop>().Islocked)
+            if (!piece.GetComponent<DragDrop>().islocked)
             {
+                Debug.Log("Piece is not locked: " + piece.name);
                 return; // Exit function if any piece is not locked
             }
         }
         // If all pieces are locked, mark puzzle as complete
+        Debug.Log("Puzzle complete!");
         SetPuzzleComplete(true);
     }
 
@@ -41,12 +48,8 @@ public class TangramTrigger : MonoBehaviour
         {
             tangramCanvas.gameObject.SetActive(false);
             Debug.Log("Tangram canvas disabled.");
-            if (objectToDisable != null)
-            {
-                objectToDisable.SetActive(false);
-            }
-            RespawnPlayer();
         }
+    
     }
 
     private void RespawnPlayer()
