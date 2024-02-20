@@ -10,7 +10,7 @@ public class TangramTrigger : MonoBehaviour
 
     private bool puzzleComplete = false;
     private bool canvasOpened = false;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && !puzzleComplete && !canvasOpened)
         {
@@ -21,10 +21,10 @@ public class TangramTrigger : MonoBehaviour
             // Disable this trigger object
             gameObject.SetActive(false);
 
-            CheckPuzzleCompletion();
+            
         }
     }
-    private void CheckPuzzleCompletion()
+    public void  CheckPuzzleCompletion()
     {
         foreach (GameObject piece in tangramPieces)
         {
@@ -38,6 +38,8 @@ public class TangramTrigger : MonoBehaviour
         Debug.Log("Puzzle complete!");
         SetPuzzleComplete(true);
     }
+
+  
 
     public void SetPuzzleComplete(bool complete)
     {

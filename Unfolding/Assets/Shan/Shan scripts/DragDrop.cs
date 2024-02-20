@@ -89,6 +89,7 @@ public class DragDrop : MonoBehaviour
     public GameObject ObjectDragToPosition;
     public float Dropdistance;
     public bool islocked = false;
+    public TangramTrigger triggertangramthingy;
 
     private Vector2 objectInitPos;
     private Quaternion objectInitRot;
@@ -100,6 +101,7 @@ public class DragDrop : MonoBehaviour
         objectInitPos = objectToDrag.transform.position;
         objectInitRot = objectToDrag.transform.rotation;
     }
+
 
     public void RotateObject()
     {
@@ -123,6 +125,7 @@ public class DragDrop : MonoBehaviour
         if (Distance < Dropdistance && IsCorrectRotation())
         {
             LockObject();
+            triggertangramthingy.CheckPuzzleCompletion();
         }
         else
         {
@@ -140,6 +143,7 @@ public class DragDrop : MonoBehaviour
     {
         islocked = true;
         objectToDrag.transform.position = ObjectDragToPosition.transform.position;
+
     }
 
     public void UnlockObject()
