@@ -58,6 +58,7 @@ public class rotOnDrag : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Entered");
             obj1.GetComponent<SwipeDetectionTestNew>().enabled = false;
             rotS.enabled = false;
         }
@@ -67,6 +68,7 @@ public class rotOnDrag : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Left");
             rotS.enabled = true;
         }
     }

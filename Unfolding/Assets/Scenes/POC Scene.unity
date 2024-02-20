@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.4440221, g: 0.49316514, b: 0.5722316, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10088,7 +10088,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2782063431437021610, guid: 8097bcc37c56299469770bbc178a6326,
         type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782063431437021610, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782063431437021610, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782063431437021610, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2855803420532064776, guid: 8097bcc37c56299469770bbc178a6326,
@@ -10188,12 +10203,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7030803112172305327, guid: 8097bcc37c56299469770bbc178a6326,
         type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030803112172305327, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030803112172305327, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7030803112172305327, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357149930877869183, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357149930877869183, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7357149930877869183, guid: 8097bcc37c56299469770bbc178a6326,
+        type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7357149930877869183, guid: 8097bcc37c56299469770bbc178a6326,
         type: 3}
-      propertyPath: m_IsTrigger
+      propertyPath: m_ExcludeLayers.m_Bits
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8407895493540494107, guid: 8097bcc37c56299469770bbc178a6326,
