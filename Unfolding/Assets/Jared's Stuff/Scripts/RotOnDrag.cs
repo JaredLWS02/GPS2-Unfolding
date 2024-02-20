@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing.Text;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,6 +15,7 @@ public class rotOnDrag : MonoBehaviour
     private bool rotAble = true;
     private float xVal = 0;
     private Quaternion targetAngle;
+    [SerializeField] private Behaviour rotS;
 
     private void Update()
     {
@@ -51,6 +51,23 @@ public class rotOnDrag : MonoBehaviour
             targetAngle = Quaternion.Euler(1 + xVal, rotY, rotZ);
             rotx = rotationXSpeed;
             rotAble = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            obj1.GetComponent<SwipeDetectionTestNew>().enabled = false;
+            rotS.enabled = false;
+        }
+    }
+
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.CompareTag("Player"))
+        {
+            rotS.enabled = true;
         }
     }
 }
