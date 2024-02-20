@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
 public class PlayerMovement : MonoBehaviour
 {
     public bool isRotate
@@ -61,12 +62,12 @@ public class PlayerMovement : MonoBehaviour
                 tapToMove = true;
             }
 
-            if(Input.GetTouch(0).phase == TouchPhase.Moved)
+            if (Input.GetTouch(0).phase == TouchPhase.Moved && !GameEventManager.isTouchObject)
             {
                 tapToMove = false;
             }
 
-            if(tapToMove)
+            if (tapToMove)
             {
                 if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
@@ -76,16 +77,16 @@ public class PlayerMovement : MonoBehaviour
                     {
                         if(!hit.collider.CompareTag("Obstacles"))
                         {
-                            player.SetDestination(hit.point);
-                            if(player.hasPath)
-                            {
-                                StopCoroutine(Move());
-                                StartCoroutine(Move());
-                            }
-                            else
-                            {
-                                StartCoroutine(Move());
-                            }
+                                player.SetDestination(hit.point);
+                                if(player.hasPath)
+                                {
+                                    StopCoroutine(Move());
+                                    StartCoroutine(Move());
+                                }
+                                else
+                                {
+                                    StartCoroutine(Move());
+                                }
                         }
                         //StartCoroutine(visualizeMovement());
                 
@@ -115,23 +116,27 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Move()
     {
         yield return new WaitForSeconds(0.1f);
-        targetMark.transform.position = player.pathEndPosition;
-        targetMark.gameObject.SetActive(true);
+        //if(player.pathStatus == NavMeshPathStatus.PathComplete)
+        //{
+            targetMark.transform.position = player.pathEndPosition;
+            targetMark.gameObject.SetActive(true);
 
-        if(camera.transform.localEulerAngles.y == 90.0f || camera.transform.localEulerAngles.y == 270.0f)
-        {
-            checkRotZ();
-        }
-        else
-        {
-            checkRotX();
-        }
+            if(camera.transform.localEulerAngles.y == 90.0f || camera.transform.localEulerAngles.y == 270.0f)
+            {
+                checkRotZ();
+            }
+            else
+            {
+                checkRotX();
+            }
 
-        if (!isChecking)
-        {
-            playerAnim.SetTrigger("isMoving");
-            StartCoroutine(checkMove());
-        }
+            if (!isChecking)
+            {
+                playerAnim.SetTrigger("isMoving");
+                StartCoroutine(checkMove());
+            }
+
+        //}
     }
     private IEnumerator checkMove()
     {
