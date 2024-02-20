@@ -25,6 +25,7 @@ public class Dialogue : MonoBehaviour
     //wait for next boolean
     private bool waitForNext;
 
+    [SerializeField] private DialogueTrigger tri;
     private void Awake()
     {
         ToggleWindow(false);
@@ -81,8 +82,8 @@ public class Dialogue : MonoBehaviour
         //Stop all Ienumerators
         StopAllCoroutines();
 
-        ToggleIndicator(false);
-        
+        //ToggleIndicator(false);
+        tri.enablePlayer();
     }
 
 
@@ -97,7 +98,7 @@ public class Dialogue : MonoBehaviour
         charIndex++; //increase the character index 
 
         //make sure you have reached the end of the sentence
-        if (charIndex < currentDialogue.Length)
+        if (charIndex <= currentDialogue.Length - 1)
         {
             //Wait x seconds
             yield return new WaitForSeconds(writingSpeed);

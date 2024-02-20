@@ -39,23 +39,27 @@ public class DialogueTrigger : MonoBehaviour
         //if we lost trigger with the player disable player detected and hide indicator
         if (collision.tag == "Player")
         {
-            playerDetected = false;
-            dialogueScript.ToggleIndicator(playerDetected);
-            dialogueScript.EndDialogue();
-            // Activate main camera
-            mainCamera.gameObject.SetActive(true);
-            // Deactivate NPC camera
-            npcCamera.gameObject.SetActive(false);
-
-            // Re-enable player object and its collider
-            playerObject.SetActive(true);
-            playerCollider.enabled = true;
-
-            // Respawn player at the new spawn point
-            playerObject.transform.position = respawnPoint.position;
+            enablePlayer();
         }
     }
 
+    public void enablePlayer()
+    {
+        playerDetected = false;
+        dialogueScript.ToggleIndicator(playerDetected);
+        //dialogueScript.EndDialogue();
+        // Activate main camera
+        mainCamera.gameObject.SetActive(true);
+        // Deactivate NPC camera
+        npcCamera.gameObject.SetActive(false);
+
+        // Re-enable player object and its collider
+        playerObject.SetActive(true);
+        playerCollider.enabled = true;
+
+        // Respawn player at the new spawn point
+        playerObject.transform.position = respawnPoint.position;
+    }
     //While detected if we interact start the dialogue
     /*private void Update()
     {
