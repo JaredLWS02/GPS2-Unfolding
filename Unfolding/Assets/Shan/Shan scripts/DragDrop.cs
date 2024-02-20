@@ -157,4 +157,3 @@ public class DragDrop : MonoBehaviour
         objectToDrag.transform.rotation = objectInitRot;
     }
 }
-
