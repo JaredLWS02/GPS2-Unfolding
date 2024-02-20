@@ -5,6 +5,8 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogueScript;
+    public Camera mainCamera;
+    public Camera npcCamera;
     private bool playerDetected;
 
     //Detect trigger with player
@@ -15,6 +17,12 @@ public class DialogueTrigger : MonoBehaviour
         {
             playerDetected = true;
             dialogueScript.ToggleIndicator(playerDetected);
+            // Activate NPC camera
+            npcCamera.gameObject.SetActive(true);
+            // Deactivate main camera
+            mainCamera.gameObject.SetActive(false);
+            // Start dialogue immediately
+            dialogueScript.StartDialogue();
         }
     }
 
@@ -26,16 +34,20 @@ public class DialogueTrigger : MonoBehaviour
             playerDetected = false;
             dialogueScript.ToggleIndicator(playerDetected);
             dialogueScript.EndDialogue();
+            // Activate main camera
+            mainCamera.gameObject.SetActive(true);
+            // Deactivate NPC camera
+            npcCamera.gameObject.SetActive(false);
         }
     }
 
     //While detected if we interact start the dialogue
-    private void Update()
+    /*private void Update()
     {
         if (playerDetected && Input.GetKeyDown(KeyCode.E))
         {
             dialogueScript.StartDialogue();
         }
-    }
+    }*/
 
 }
