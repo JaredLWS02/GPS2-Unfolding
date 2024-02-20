@@ -7,6 +7,10 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogueScript;
     public Camera mainCamera;
     public Camera npcCamera;
+    public GameObject playerObject;
+    public Collider playerCollider; // Collider to disable player detection
+    public Transform respawnPoint; // New spawn point for the player
+
     private bool playerDetected;
 
     //Detect trigger with player
@@ -23,6 +27,10 @@ public class DialogueTrigger : MonoBehaviour
             mainCamera.gameObject.SetActive(false);
             // Start dialogue immediately
             dialogueScript.StartDialogue();
+
+            // Disable player object and its collider
+            playerObject.SetActive(false);
+            playerCollider.enabled = false;
         }
     }
 
@@ -38,6 +46,13 @@ public class DialogueTrigger : MonoBehaviour
             mainCamera.gameObject.SetActive(true);
             // Deactivate NPC camera
             npcCamera.gameObject.SetActive(false);
+
+            // Re-enable player object and its collider
+            playerObject.SetActive(true);
+            playerCollider.enabled = true;
+
+            // Respawn player at the new spawn point
+            playerObject.transform.position = respawnPoint.position;
         }
     }
 
