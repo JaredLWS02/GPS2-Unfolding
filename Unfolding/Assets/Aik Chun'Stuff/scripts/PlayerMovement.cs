@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing.Imaging;
 using UnityEngine;
 using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
@@ -30,6 +29,18 @@ public class PlayerMovement : MonoBehaviour
         tapToMove = true;
     }
 
+    private void OnEnable()
+    {
+        isChecking = false;
+    }
+
+    private void OnDisable()
+    {
+        if(targetMark.activeSelf)
+        {
+            targetMark.SetActive(false);
+        }
+    }
     // Update is called once per frame
     void Update()
     {

@@ -5,6 +5,12 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogueScript;
+    public Camera mainCamera;
+    public Camera npcCamera;
+    public GameObject playerObject;
+    public Collider playerCollider; // Collider to disable player detection
+    public Transform respawnPoint; // New spawn point for the player
+
     private bool playerDetected;
 
     //Detect trigger with player
@@ -15,6 +21,16 @@ public class DialogueTrigger : MonoBehaviour
         {
             playerDetected = true;
             dialogueScript.ToggleIndicator(playerDetected);
+            // Activate NPC camera
+            npcCamera.gameObject.SetActive(true);
+            // Deactivate main camera
+            mainCamera.gameObject.SetActive(false);
+            // Start dialogue immediately
+            dialogueScript.StartDialogue();
+
+            // Disable player object and its collider
+            playerObject.SetActive(false);
+            playerCollider.enabled = false;
         }
     }
 
@@ -23,18 +39,34 @@ public class DialogueTrigger : MonoBehaviour
         //if we lost trigger with the player disable player detected and hide indicator
         if (collision.tag == "Player")
         {
-            playerDetected = false;
-            dialogueScript.ToggleIndicator(playerDetected);
+            enablePlayer();
         }
     }
 
+    public void enablePlayer()
+    {
+        playerDetected = false;
+        dialogueScript.ToggleIndicator(playerDetected);
+        //dialogueScript.EndDialogue();
+        // Activate main camera
+        mainCamera.gameObject.SetActive(true);
+        // Deactivate NPC camera
+        npcCamera.gameObject.SetActive(false);
+
+        // Re-enable player object and its collider
+        playerObject.SetActive(true);
+        playerCollider.enabled = true;
+
+        // Respawn player at the new spawn point
+        playerObject.transform.position = respawnPoint.position;
+    }
     //While detected if we interact start the dialogue
-    private void Update()
+    /*private void Update()
     {
         if (playerDetected && Input.GetKeyDown(KeyCode.E))
         {
             dialogueScript.StartDialogue();
         }
-    }
+    }*/
 
 }

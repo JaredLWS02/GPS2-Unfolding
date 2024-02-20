@@ -25,6 +25,7 @@ public class Dialogue : MonoBehaviour
     //wait for next boolean
     private bool waitForNext;
 
+    [SerializeField] private DialogueTrigger tri;
     private void Awake()
     {
         ToggleWindow(false);
@@ -42,7 +43,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()//
     {
-        if (!started) 
+        if (started) 
         {
             return;
         }
@@ -53,7 +54,11 @@ public class Dialogue : MonoBehaviour
 
         ToggleIndicator(false); //hide the indicator
 
-        GetDialogue(0); //Start with first dialogue
+        index = 0; // Start with the first dialogue
+        charIndex = 0; // Reset character index
+        dialogueText.text = string.Empty; // Clear dialogue text
+
+        //GetDialogue(0); //Start with first dialogue
 
         StartCoroutine(Writing());//Start writing
     }
@@ -68,13 +73,17 @@ public class Dialogue : MonoBehaviour
 
     public void EndDialogue() //
     {
-        started = waitForNext = false;
-
+        //started is disable
+        started = false;
+        //disable wait for next
+        waitForNext = false;
+        //Hide the window
         ToggleWindow(false);
-        ToggleIndicator(false);
+        //Stop all Ienumerators
+        StopAllCoroutines();
 
-
-        //StopAllCoroutines();
+        //ToggleIndicator(false);
+        tri.enablePlayer();
     }
 
 
@@ -89,7 +98,7 @@ public class Dialogue : MonoBehaviour
         charIndex++; //increase the character index 
 
         //make sure you have reached the end of the sentence
-        if (charIndex < currentDialogue.Length)
+        if (charIndex <= currentDialogue.Length - 1)
         {
             //Wait x seconds
             yield return new WaitForSeconds(writingSpeed);
@@ -109,18 +118,22 @@ public class Dialogue : MonoBehaviour
             if (!started)
                 return;
 
-            if (waitForNext && Input.GetKeyDown(KeyCode.E))
+            if (waitForNext && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 waitForNext = false;
                 
                 index++;
 
-                if (index < dialogues.Count - 1)
+                //Check if we are in the scope of dialogues list
+                if (index < dialogues.Count)
                 {
+                    //ifso fetch the next dialogue
                     GetDialogue(index);
                 }
-                else // If not, end the dialogue process
+                else 
                 {
+                // If not, end the dialogue process
+                    ToggleIndicator(true);
                     EndDialogue();
                 }
             }
