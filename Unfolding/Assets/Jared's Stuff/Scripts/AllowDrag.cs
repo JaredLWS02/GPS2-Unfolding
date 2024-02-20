@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AllowDrag : MonoBehaviour
 {
-    [SerializeField] private Behaviour rotS;
+    public Behaviour rotS;
 
-    private void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.CompareTag("Player"))
         {
@@ -14,7 +14,7 @@ public class AllowDrag : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider col)
+    void OnTriggerExit(Collider col)
     {
         if (col.gameObject.CompareTag("Player"))
         {

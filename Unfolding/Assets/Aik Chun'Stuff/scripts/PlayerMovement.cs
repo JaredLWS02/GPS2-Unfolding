@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private GameObject targetMark;
     [SerializeField] private float rayDistance;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject playerCamera;
     void Start()
     // Start is called before the first frame update
     {
@@ -121,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             targetMark.transform.position = player.pathEndPosition;
             targetMark.gameObject.SetActive(true);
 
-            if(camera.transform.localEulerAngles.y == 90.0f || camera.transform.localEulerAngles.y == 270.0f)
+            if(playerCamera.transform.localEulerAngles.y == 90.0f || playerCamera.transform.localEulerAngles.y == 270.0f)
             {
                 checkRotZ();
             }
