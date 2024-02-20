@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class AllowDrag : MonoBehaviour
 {
-    [SerializeField] private Behaviour rotS;
+    public Behaviour rotS;
 
-    private void OnTriggerEnter(Collider col)
+    void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("Player"))
+        if(col.gameObject.compareTag ("Player"))
         {
             rotS.enabled = false;
         }
     }
 
-    private void OnTriggerExit(Collider col)
+    void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.compareTag("Player"))
         {
             rotS.enabled = true;
         }
