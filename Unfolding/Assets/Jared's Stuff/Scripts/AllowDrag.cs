@@ -8,7 +8,7 @@ public class AllowDrag : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.compareTag ("Player"))
+        if(col.gameObject.CompareTag("Player"))
         {
             rotS.enabled = false;
         }
@@ -16,7 +16,7 @@ public class AllowDrag : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.compareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
             rotS.enabled = true;
         }

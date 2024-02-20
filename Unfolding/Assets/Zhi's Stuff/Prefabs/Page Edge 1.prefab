@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebuggingText: {fileID: 0}
-  sensitivity: 50000
+  sensitivity: 75000
   nextPageAnimator: {fileID: 0}
   prevPageAnimator: {fileID: 0}
   clicked: 0

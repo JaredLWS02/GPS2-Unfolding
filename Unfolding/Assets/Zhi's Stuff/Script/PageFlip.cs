@@ -30,7 +30,8 @@ public class PageFlip : MonoBehaviour
 
     void Update()
     {
-        DebuggingText.text = GameEventManager.selectedPage;
+        if (DebuggingText != null)
+            DebuggingText.text = GameEventManager.selectedPage;
         GetTouch();
         if (hit.collider != null)
         {
