@@ -32,6 +32,7 @@ public class NavMeshGenerator : MonoBehaviour
     {
         if (PageFlip.flipped == true && doOnce == false)
         {
+            Debug.Log("generated nav mesh");  
             nav.UpdateNavMesh(nav.navMeshData);
             doOnce = true;
         }
