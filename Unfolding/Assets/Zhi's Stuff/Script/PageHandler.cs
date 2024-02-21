@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PageHandler : MonoBehaviour
 {
@@ -32,17 +28,20 @@ public class PageHandler : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (PageFlip.flipped == true && doOnce == false && GameEventManager.selectedPage == hit.collider.name)
+                    if (PageFlip.flipped == true && doOnce == false && GameEventManager.selectedPage == hit.collider.name && hit.collider.tag == "Edge")
                     {
                         // find in child which object to set the position to
+                        Debug.Log("Called");
                         t = hit.transform.Find("Spawn Point").GetComponent<Transform>();
                         frog.transform.position = t.position;
                         doOnce = true;
                     }
                 }
+                else
+                    return;
             }
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) && hit.collider.tag == "Edge")
         {
             frog.transform.position = t.position;
         }
@@ -54,7 +53,7 @@ public class PageHandler : MonoBehaviour
                 frog.transform.position = t.position;
         }
 
-        if (hit.transform != null)
+        if (hit.transform != null && hit.collider.tag == "Edge")
             t = hit.transform.Find("Spawn Point").GetComponent<Transform>();
     }
 

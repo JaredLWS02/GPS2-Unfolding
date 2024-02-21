@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Puzzle
   - Obstacles
+  - Edge
   layers:
   - Default
   - TransparentFX

@@ -50,7 +50,7 @@ public class PageFlip : MonoBehaviour
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider)
+                if (hit.collider && hit.collider.tag == "Edge")
                 {
                     GameEventManager.selectedPage = hit.collider.name;
                     clicked = true;
@@ -117,7 +117,7 @@ public class PageFlip : MonoBehaviour
         #endregion
 
         #region Limit Flip
-        if (frame >= 0.99 || frame <= 0.01)
+        if (frame >= 0.999 || frame <= 0.001)
         {
             flipped = true;
         }
