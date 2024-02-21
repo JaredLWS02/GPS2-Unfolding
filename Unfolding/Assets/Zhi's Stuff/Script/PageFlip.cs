@@ -117,7 +117,7 @@ public class PageFlip : MonoBehaviour
         #endregion
 
         #region Limit Flip
-        if (frame >= 0.99 || frame <= 0.01)
+        if (frame >= 0.999 || frame <= 0.001)
         {
             flipped = true;
         }
