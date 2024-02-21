@@ -7,12 +7,17 @@ using UnityEngine.AI;
 public class NavMeshGenerator : MonoBehaviour
 {
     [SerializeField] private NavMeshSurface nav;
+
+    private bool doOnce;
+
     //[SerializeField] private NavMeshData data;
     //[SerializeField] private NavMeshModifierVolume v;
     //[SerializeField] private GameObject obstacles;
     // Start is called before the first frame update
     void Awake()
     {
+        doOnce = true;
+
         if(nav != null)
         {
             nav.UpdateNavMesh(nav.navMeshData);
@@ -23,10 +28,22 @@ public class NavMeshGenerator : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (PageFlip.flipped == true && doOnce == false)
+        {
+            nav.UpdateNavMesh(nav.navMeshData);
+            doOnce = true;
+        }
+        else if(PageFlip.flipped == false && doOnce == true) 
+        {
+            doOnce = false;
+        }
+    }
     //// Update is called once per frame
     //void Update()
     //{
-        
+
     //}
 
     //void UpdateMesh()

@@ -16,10 +16,22 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        Vector3 desiredPosition = player.transform.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        //transform.position = smoothedPosition;
-        transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x,0,limit), Mathf.Clamp(transform.position.y, 0, 0), Mathf.Clamp(transform.position.z, 0, 0));
+        if (GameEventManager.isTouchPage == false)
+        {
+            Vector3 desiredPosition = player.transform.position + offset;
+            GetComponentInChildren<Camera>().fieldOfView = 34;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            //transform.position = smoothedPosition;
+            transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, 0, limit), Mathf.Clamp(transform.position.y, 0, 0), Mathf.Clamp(transform.position.z, 0, 0));
+        }
+        else
+        {
+            Vector3 desiredPosition = new Vector3(17.13f, 7.7f, -20.4f);
+            GetComponentInChildren<Camera>().fieldOfView = 60;
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+            //transform.position = smoothedPosition;
+            transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, 0, limit), Mathf.Clamp(transform.position.y, 0, limit), Mathf.Clamp(transform.position.z, 0, limit));
+        }
     }
 
 }

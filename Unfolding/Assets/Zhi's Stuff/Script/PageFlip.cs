@@ -50,7 +50,7 @@ public class PageFlip : MonoBehaviour
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider)
+                if (hit.collider && hit.collider.tag == "Edge")
                 {
                     GameEventManager.selectedPage = hit.collider.name;
                     clicked = true;
