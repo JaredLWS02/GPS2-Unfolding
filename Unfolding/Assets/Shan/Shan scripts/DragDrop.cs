@@ -93,26 +93,34 @@ public class DragDrop : MonoBehaviour
 
     private Vector2 objectInitPos;
     private Quaternion objectInitRot;
+    private bool isRotate = true;
 
-
+    
     // Start is called before the first frame update
     void Start()
     {
         objectInitPos = objectToDrag.transform.position;
         objectInitRot = objectToDrag.transform.rotation;
+        Debug.Log("Initial Rotation: " + objectInitRot.eulerAngles);
     }
 
 
     public void RotateObject()
     {
-        if (!islocked)
+        if (isRotate)
         {
+            if (!islocked)
+            {
             objectToDrag.transform.Rotate(Vector3.forward, 90f); // Rotate clockwise by 90 degrees
+            }
+
         }
+        
     }
 
     public void DragObject()
     {
+            isRotate = false;
         if (!islocked)
         {
             objectToDrag.transform.position = Input.mousePosition;
@@ -121,6 +129,7 @@ public class DragDrop : MonoBehaviour
 
     public void DropObject()
     {
+        
         float Distance = Vector3.Distance(objectToDrag.transform.position, ObjectDragToPosition.transform.position);
         if (Distance < Dropdistance && IsCorrectRotation())
         {
@@ -136,7 +145,7 @@ public class DragDrop : MonoBehaviour
     private bool IsCorrectRotation()
     {
         // Check if the object's rotation is close to the desired rotation (within a small tolerance)
-        return Quaternion.Angle(objectToDrag.transform.rotation, ObjectDragToPosition.transform.rotation) < 1f;
+        return Quaternion.Angle(objectToDrag.transform.rotation, ObjectDragToPosition.transform.rotation) <= 0f;
     }
 
     public void LockObject()
@@ -153,6 +162,7 @@ public class DragDrop : MonoBehaviour
 
     private void ResetObject()
     {
+        isRotate = true;
         objectToDrag.transform.position = objectInitPos;
         objectToDrag.transform.rotation = objectInitRot;
     }
