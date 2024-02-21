@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -404,6 +404,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8df55f45b3553874fa1c3a9c7790ca2c,
     type: 3}
   m_PrefabInstance: {fileID: 893277529}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &275219690 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1829135824416781621, guid: 221b4309d50298947897154b38e157e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 469137335}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &286802060
 PrefabInstance:
@@ -909,7 +915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &389360753
 Transform:
   m_ObjectHideFlags: 0
@@ -925,6 +931,8 @@ Transform:
   m_Children:
   - {fileID: 488619116}
   - {fileID: 99732097}
+  - {fileID: 2030692666}
+  - {fileID: 275219690}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &422606413
@@ -1321,12 +1329,17 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 389360753}
     m_Modifications:
     - target: {fileID: 696505996625243478, guid: 221b4309d50298947897154b38e157e2,
         type: 3}
       propertyPath: m_Name
       value: frog animatin shyte (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 696505996625243478, guid: 221b4309d50298947897154b38e157e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1829135824416781621, guid: 221b4309d50298947897154b38e157e2,
         type: 3}
@@ -1346,17 +1359,17 @@ PrefabInstance:
     - target: {fileID: 1829135824416781621, guid: 221b4309d50298947897154b38e157e2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.11
+      value: -11.46
       objectReference: {fileID: 0}
     - target: {fileID: 1829135824416781621, guid: 221b4309d50298947897154b38e157e2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.872
+      value: 5.532
       objectReference: {fileID: 0}
     - target: {fileID: 1829135824416781621, guid: 221b4309d50298947897154b38e157e2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.947
+      value: -15.633001
       objectReference: {fileID: 0}
     - target: {fileID: 1829135824416781621, guid: 221b4309d50298947897154b38e157e2,
         type: 3}
@@ -2136,7 +2149,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 389360753}
     m_Modifications:
     - target: {fileID: 7694184392182268607, guid: 087926ac945c4da42bdb709db94fbaaa,
         type: 3}
@@ -2156,17 +2169,17 @@ PrefabInstance:
     - target: {fileID: 7694184392182268607, guid: 087926ac945c4da42bdb709db94fbaaa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.14116
+      value: -6.49116
       objectReference: {fileID: 0}
     - target: {fileID: 7694184392182268607, guid: 087926ac945c4da42bdb709db94fbaaa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.129
+      value: 4.789
       objectReference: {fileID: 0}
     - target: {fileID: 7694184392182268607, guid: 087926ac945c4da42bdb709db94fbaaa,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.301672
+      value: -15.27833
       objectReference: {fileID: 0}
     - target: {fileID: 7694184392182268607, guid: 087926ac945c4da42bdb709db94fbaaa,
         type: 3}
@@ -2212,6 +2225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: (Prefab) Sailor Beaver (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795286138394401500, guid: 087926ac945c4da42bdb709db94fbaaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4585,7 +4603,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
-  camera: {fileID: 1449489182}
+  playerCamera: {fileID: 2059391570}
 --- !u!4 &1128967359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: e16c88d85e5155541a4077a35e592cc9,
@@ -6066,7 +6084,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e29ecdbec49025545a3733c9d84f37ff, type: 2}
+  - {fileID: 2100000, guid: 0934123d9e10e7547932428574d0540b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6574,7 +6592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1128967355}
-  offset: {x: 15, y: 0, z: 0}
+  offset: {x: 17, y: 0, z: 0}
   smoothSpeed: 0.5
   limit: 35
 --- !u!114 &1449489184
@@ -8290,6 +8308,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!4 &2030692666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7694184392182268607, guid: 087926ac945c4da42bdb709db94fbaaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 763385982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2033896734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8535,8 +8559,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059391570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12931702, y: -0, z: -0, w: 0.9916033}
-  m_LocalPosition: {x: -15.81, y: 3.832, z: -6.582}
+  m_LocalRotation: {x: 0.12931462, y: -0, z: -0, w: 0.9916036}
+  m_LocalPosition: {x: -15.81, y: 3.854, z: -6.575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8583,7 +8607,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 26.991467
+  field of view: 26.9914
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -9182,5 +9206,3 @@ SceneRoots:
   - {fileID: 389360753}
   - {fileID: 322651138}
   - {fileID: 286802060}
-  - {fileID: 763385982}
-  - {fileID: 469137335}
