@@ -11,7 +11,7 @@ NavMeshProjectSettings:
     cost: 1
   - name: Jump
     cost: 2
-  - name: Lake
+  - name: Walkable 2
     cost: 1
   - name: 
     cost: 1
@@ -78,7 +78,7 @@ NavMeshProjectSettings:
     agentSlope: 35
     agentClimb: 0.2
     ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
+    maxJumpAcrossDistance: 2
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667

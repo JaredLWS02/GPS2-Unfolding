@@ -6,18 +6,20 @@ public class AllowDrag : MonoBehaviour
 {
     public Behaviour rotS;
 
-    void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
-        if(col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
+            //Debug.Log("Entered");
             rotS.enabled = false;
         }
     }
 
-    void OnTriggerExit(Collider col)
+    private void OnTriggerExit(Collider col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            //Debug.Log("Left");
             rotS.enabled = true;
         }
     }

@@ -16,6 +16,7 @@ public class rotOnDrag : MonoBehaviour
     private float xVal = 0;
     private Quaternion targetAngle;
     [SerializeField] private Behaviour rotS;
+    [SerializeField] private EnvironmentalPuzzleChecker checker;
 
     private void Update()
     {
@@ -27,6 +28,7 @@ public class rotOnDrag : MonoBehaviour
                 rotx = 0;
                 rotAble = true;
                 mesh.UpdateNavMesh(mesh.navMeshData);   
+                //checker.checkCorrectRot();
             }
         }
     }
@@ -54,22 +56,22 @@ public class rotOnDrag : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider col)
-    {
-        if (col.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Entered");
-            obj1.GetComponent<SwipeDetectionTestNew>().enabled = false;
-            rotS.enabled = false;
-        }
-    }
+    //private void OnTriggerStay(Collider col)
+    //{
+    //    if (col.gameObject.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Entered");
+    //        obj1.GetComponent<SwipeDetectionTestNew>().enabled = false;
+    //        rotS.enabled = false;
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider col)
-    {
-        if (col.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Left");
-            rotS.enabled = true;
-        }
-    }
+    //private void OnTriggerExit(Collider col)
+    //{
+    //    if (col.gameObject.CompareTag("Player"))
+    //    {
+    //        Debug.Log("Left");
+    //        rotS.enabled = true;
+    //    }
+    //}
 }

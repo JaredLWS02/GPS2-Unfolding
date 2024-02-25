@@ -34,11 +34,16 @@ public class SwipeDetectionTestNew : MonoBehaviour
                     GameObject currentGO = hit.collider.gameObject;
                     startPos = Input.GetTouch(0).position;
                     clicked = true;
-                    GameEventManager.isTouchObject = true;
 
                 }
             }
         }
+
+        if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Moved && clicked)
+        {
+            GameEventManager.isTouchObject = true;
+        }
+
         if (clicked == true && Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended && Physics.Raycast(ray, out hit))
         {
             endPos = Input.touches[0].position;
@@ -89,11 +94,17 @@ public class SwipeDetectionTestNew : MonoBehaviour
                 {
                     startPos = Input.mousePosition;
                     clicked = true;
-                    GameEventManager.isTouchObject = true;
+                    //GameEventManager.isTouchObject = true;
 
                 }
             }
         }
+
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Moved && clicked)
+        {
+            GameEventManager.isTouchObject = true;
+        }
+
         if (Input.GetKeyUp(KeyCode.Mouse0) && Physics.Raycast(ray, out hit))
         {
             endPos = Input.mousePosition;
