@@ -30,7 +30,7 @@ public class CameraFollow : MonoBehaviour
             GetComponentInChildren<Camera>().fieldOfView = 60;
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
             //transform.position = smoothedPosition;
-            transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, 0, limit), Mathf.Clamp(transform.position.y, 0, limit), Mathf.Clamp(transform.position.z, 0, limit));
+            transform.position = desiredPosition;
         }
     }
 
