@@ -38,13 +38,13 @@ public class PlayerMovement : MonoBehaviour
         isChecking = false;
     }
 
-    private void OnDisable()
-    {
-        if(targetMark.activeSelf)
-        {
-            targetMark.SetActive(false);
-        }
-    }
+    //private void OnDisable()
+    //{
+    //    if(targetMark.activeSelf)
+    //    {
+    //        targetMark.SetActive(false);
+    //    }
+    //}
     // Update is called once per frame
     void Update()
     {
