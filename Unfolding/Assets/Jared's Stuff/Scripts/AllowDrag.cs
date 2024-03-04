@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class AllowDrag : MonoBehaviour
 {
+    [SerializeField] private GameObject sensor;
+    private SpriteRenderer sr;
     public Behaviour rotS;
+
+    private void Awake()
+    {
+        sr = sensor.GetComponent<SpriteRenderer>();
+    }
 
     private void OnTriggerStay(Collider col)
     {
@@ -12,6 +19,7 @@ public class AllowDrag : MonoBehaviour
         {
             //Debug.Log("Entered");
             rotS.enabled = false;
+            sr.color = Color.red;
         }
     }
 
@@ -21,6 +29,7 @@ public class AllowDrag : MonoBehaviour
         {
             //Debug.Log("Left");
             rotS.enabled = true;
+            sr.color = Color.green;
         }
     }
 }
