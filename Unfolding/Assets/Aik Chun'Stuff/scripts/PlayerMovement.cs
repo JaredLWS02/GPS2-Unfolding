@@ -12,8 +12,10 @@ public class PlayerMovement : MonoBehaviour
         set;
     }
     private RaycastHit hit;
-    private bool tapToMove;
+    public bool tapToMove;
     private bool startMove;
+
+    public bool isMoving;
 
     private Animator playerAnim;
     private bool isChecking;
@@ -29,15 +31,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private GameObject playerCamera;
     [SerializeField] private float swipeDist;
+
+
     void Start()
-    // Start is called before the first frame update
     {
-        //lr = GetComponent<LineRenderer>();
         playerAnim = GetComponent<Animator>();
         targetMarkAnim = targetMark.GetComponent<Animator>();
         isRotate = false;
         tapToMove = true;
         startMove = false;
+        isMoving = false;
     }
 
     private void OnEnable()
@@ -74,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
                     endDist = Input.GetTouch(0).position;
-                    Debug.Log((endDist - startDist).magnitude);
                     if ((endDist - startDist).magnitude >= 100.0f)
                     {
                         tapToMove = false;
@@ -128,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (player.path.status == NavMeshPathStatus.PathComplete)
             {
+                isMoving = true;
                 yield return new WaitForSeconds(0.05f);
                 targetMark.transform.position = player.pathEndPosition;
                 targetMark.gameObject.SetActive(true);
@@ -163,7 +166,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnim.SetTrigger("Stop");
         targetMark.gameObject.SetActive(false);
         isChecking = false;
-        startMove = false;
+        isMoving = false;
     }
 
     private void checkRotX()
