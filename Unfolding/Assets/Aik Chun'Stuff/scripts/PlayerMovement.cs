@@ -58,8 +58,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isRotate)
+        if (isRotate || GameEventManager.isTouchPage)
         {
+            //if(GameEventManager.isTouchPage)
+            //{
+                //StopAllCoroutines();
+                playerAnim.ResetTrigger("isMoving");
+                playerAnim.ResetTrigger("Stop");
+            //}
             return;
         }
 
@@ -96,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
                             {
                                 if (player.hasPath)
                                 {
+                                    playerAnim.ResetTrigger("isMoving");
+                                    playerAnim.ResetTrigger("Stop");
                                     StopCoroutine(Move());
                                     StopCoroutine(checkMove());
                                     StartCoroutine(Move());
