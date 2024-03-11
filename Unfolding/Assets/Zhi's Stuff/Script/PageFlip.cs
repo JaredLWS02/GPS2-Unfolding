@@ -12,7 +12,7 @@ public class PageFlip : MonoBehaviour
     [SerializeField] private Animator nextPageAnimator;
     [SerializeField] private Animator prevPageAnimator;
 
-    public bool clicked;
+    public static bool clicked;
     public static bool flipped;
 
     private Ray ray;
@@ -102,15 +102,15 @@ public class PageFlip : MonoBehaviour
                 frame -= 0.01f;
             }
 
-            if (hit.collider.name == GameEventManager.selectedPage)
-            {
+            //if (hit.collider.name == GameEventManager.selectedPage)
+            //{
                 anim.Play("IFlip", 0, frame);
 
                 if (nextPageAnimator != null)
                     nextPageAnimator.Play("IOpen", 0, frame);
                 if (prevPageAnimator != null)
                     prevPageAnimator.Play("IClose", 0, frame);
-            }
+            //}
 
             clicked = false;
         }
