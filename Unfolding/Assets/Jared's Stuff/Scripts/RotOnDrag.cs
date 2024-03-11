@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,7 +17,6 @@ public class rotOnDrag : MonoBehaviour
     private float xVal = 0;
     private Quaternion targetAngle;
     [SerializeField] private Behaviour rotS;
-    [SerializeField] private EnvironmentalPuzzleChecker checker;
 
     private void Update()
     {
@@ -25,9 +25,11 @@ public class rotOnDrag : MonoBehaviour
             obj1.transform.Rotate(rotx, 0, 0);
             if (Mathf.Abs(Quaternion.Dot(obj1.transform.rotation, targetAngle)) > precision)
             {
+                mesh.enabled = true;
+                //mesh.navMeshData = nav;
+                mesh.UpdateNavMesh(mesh.navMeshData);
                 rotx = 0;
                 rotAble = true;
-                mesh.UpdateNavMesh(mesh.navMeshData);   
                 //checker.checkCorrectRot();
             }
         }
@@ -38,6 +40,7 @@ public class rotOnDrag : MonoBehaviour
         Debug.Log("Did rotate");
         if (rotAble == true)
         {
+            mesh.enabled = false;
             xVal = xVal - 120;
             targetAngle = Quaternion.Euler(-1 + xVal, rotY, rotZ);
             rotx = -rotationXSpeed;
@@ -49,6 +52,8 @@ public class rotOnDrag : MonoBehaviour
     {
         if (rotAble == true)
         {
+            mesh.enabled = false;
+
             xVal = xVal + 120;
             targetAngle = Quaternion.Euler(1 + xVal, rotY, rotZ);
             rotx = rotationXSpeed;

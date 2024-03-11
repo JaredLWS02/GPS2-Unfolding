@@ -18,16 +18,23 @@ public class PlayerMovement : MonoBehaviour
     private Animator playerAnim;
     private bool isChecking;
 
+    private Animator targetMarkAnim;
+
+    private Vector2 startDist;
+    private Vector2 endDist;
+
     [SerializeField] private NavMeshAgent player;
     [SerializeField] private GameObject targetMark;
     [SerializeField] private float rayDistance;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private GameObject playerCamera;
+    [SerializeField] private float swipeDist;
     void Start()
     // Start is called before the first frame update
     {
         //lr = GetComponent<LineRenderer>();
         playerAnim = GetComponent<Animator>();
+        targetMarkAnim = targetMark.GetComponent<Animator>();
         isRotate = false;
         tapToMove = true;
         startMove = false;
@@ -38,39 +45,40 @@ public class PlayerMovement : MonoBehaviour
         isChecking = false;
     }
 
-    private void OnDisable()
-    {
-        if(targetMark.activeSelf)
-        {
-            targetMark.SetActive(false);
-        }
-    }
+    //private void OnDisable()
+    //{
+    //    if(targetMark.activeSelf)
+    //    {
+    //        targetMark.SetActive(false);
+    //    }
+    //}
     // Update is called once per frame
     void Update()
     {
         if (isRotate)
         {
-            //if(player.hasPath)
-            //{
-            //    player.isStopped = true;
-            //    player.ResetPath();
-            //}
             return;
         }
 
-        if(!GameEventManager.isTouchObject)
+        if (!GameEventManager.isTouchObject)
         {
-            if(Input.touchCount > 0)
+            if (Input.touchCount > 0)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began /*&& !GameEventManager.isTouchObject*/)
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
                 {
+                    startDist = Input.GetTouch(0).position;
                     tapToMove = true;
                     startMove = true;
                 }
 
-                if (Input.GetTouch(0).phase == TouchPhase.Moved /*&& !GameEventManager.isTouchObject*/)
+                if (Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
-                    tapToMove = false;
+                    endDist = Input.GetTouch(0).position;
+                    Debug.Log((endDist - startDist).magnitude);
+                    if ((endDist - startDist).magnitude >= 100.0f)
+                    {
+                        tapToMove = false;
+                    }
                 }
 
                 if (startMove)
@@ -78,34 +86,25 @@ public class PlayerMovement : MonoBehaviour
                     if (Input.GetTouch(0).phase == TouchPhase.Ended && tapToMove)
                     {
                         Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-                
+
                         if (Physics.Raycast(touchRay, out hit, rayDistance, groundLayer))
                         {
                             Debug.Log(hit.collider.gameObject.name);
-                            if(!hit.collider.CompareTag("Obstacles"))
+                            if (!hit.collider.CompareTag("Obstacles"))
                             {
-                                //Debug.Log(checkAgentOnNavMesh(hit));
-                                //if(checkAgentOnNavMesh(hit))
-                                //{
-                                        player.enabled = true;
-                                        player.SetDestination(hit.point);
-                                        if(player.hasPath)
-                                        {
-                                            StopCoroutine(Move());
-                                            StartCoroutine(Move());
-                                        }
-                                        else
-                                        {
-                                            StartCoroutine(Move());
-                                        }
-                                //}
-                                //else
-                                //{
-                                    //player.enabled = false;
-                                //}
+                                if (player.hasPath)
+                                {
+                                    StopCoroutine(Move());
+                                    StopCoroutine(checkMove());
+                                    StartCoroutine(Move());
+                                }
+                                else
+                                {
+                                    StartCoroutine(Move());
+                                }
                             }
                             //StartCoroutine(visualizeMovement());
-                
+
                         }
                     }
 
@@ -118,62 +117,41 @@ public class PlayerMovement : MonoBehaviour
             startMove = false;
         }
 
-        //for (var i = 0; i < Input.touchCount; ++i)
-        //{
-        //    if (Input.GetTouch(i).phase == TouchPhase.Began && !GameEventManager.isTouchObject)
-        //    {
-        //        if (Input.GetTouch(i).tapCount == 2)
-        //        {
-        //            Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-
-        //            if (Physics.Raycast(touchRay, out hit))
-        //            {
-        //                player.SetDestination(hit.point);
-        //            }
-        //        }
-        //    }
-        //}
-
     }
-
-    //private bool checkAgentOnNavMesh(RaycastHit a)
-    //{
-    //    NavMeshHit hit;
-    //    //return (NavMesh.SamplePosition(a.point, out hit, 1.0f, player.areaMask));
-    //    if (NavMesh.SamplePosition(a.point, out hit, 1.0f, player.areaMask))
-    //    {
-    //        //return true;
-    //        //if (Mathf.Approximately(gameObject.transform.position.x, hit.position.x) && Mathf.Approximately(gameObject.transform.position.y, hit.position.y))
-    //        //{
-    //        return a.point.y <= hit.position.y;
-    //        //}
-    //    }
-    //    return false;
-    //}
     private IEnumerator Move()
     {
-        yield return new WaitForSeconds(0.1f);
-        if(player.pathStatus == NavMeshPathStatus.PathComplete)
-        {
-            targetMark.transform.position = player.pathEndPosition;
-            targetMark.gameObject.SetActive(true);
-
-            if(playerCamera.transform.localEulerAngles.y == 90.0f || playerCamera.transform.localEulerAngles.y == 270.0f)
+            player.SetDestination(hit.point);
+            while (player.pathPending)
             {
-                checkRotZ();
+                yield return null;
+            }
+
+            if (player.path.status == NavMeshPathStatus.PathComplete)
+            {
+                yield return new WaitForSeconds(0.05f);
+                targetMark.transform.position = player.pathEndPosition;
+                targetMark.gameObject.SetActive(true);
+                targetMarkAnim.Play("blooming animation",0,0);
+
+                if (playerCamera.transform.localEulerAngles.y == 90.0f || playerCamera.transform.localEulerAngles.y == 270.0f)
+                {
+                    checkRotZ();
+                }
+                else
+                {
+                    checkRotX();
+                }
+
+                if (!isChecking)
+                {
+                    playerAnim.SetTrigger("isMoving");
+                    StartCoroutine(checkMove());
+                }
             }
             else
             {
-                checkRotX();
+                player.ResetPath();
             }
-
-            if (!isChecking)
-            {
-                playerAnim.SetTrigger("isMoving");
-                StartCoroutine(checkMove());
-            }
-
-        }
     }
     private IEnumerator checkMove()
     {
@@ -186,7 +164,6 @@ public class PlayerMovement : MonoBehaviour
         targetMark.gameObject.SetActive(false);
         isChecking = false;
         startMove = false;
-        player.enabled = false;
     }
 
     private void checkRotX()

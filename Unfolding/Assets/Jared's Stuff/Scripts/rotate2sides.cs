@@ -10,6 +10,7 @@ public class rotate2sides : MonoBehaviour
     private bool rotatable = true;
     private float xVal = 0;
     private Quaternion targetAngle;
+    [SerializeField] private float rotY, rotZ;
 
     private void Update()
     {
@@ -30,7 +31,7 @@ public class rotate2sides : MonoBehaviour
         if (rotatable == true)
         {
             xVal = xVal - 180;
-            targetAngle = Quaternion.Euler(-1 + xVal, 0, 0);
+            targetAngle = Quaternion.Euler(-1 + xVal, rotY, rotZ);
             rot = -2f;
             rotatable = false;
         }
@@ -42,7 +43,7 @@ public class rotate2sides : MonoBehaviour
         if (rotatable == true)
         {
             xVal = xVal + 180;
-            targetAngle = Quaternion.Euler(1 + xVal, 0, 0);
+            targetAngle = Quaternion.Euler(1 + xVal, rotY, rotZ);
             rot = 2f;
             rotatable = false;
         }
