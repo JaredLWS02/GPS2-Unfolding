@@ -5011,7 +5011,6 @@ MonoBehaviour:
   sensitivity: 75000
   nextPageAnimator: {fileID: 574932857}
   prevPageAnimator: {fileID: 1676874336}
-  clicked: 0
 --- !u!4 &1670462403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5192121389141638669, guid: 96cd7df238efaf34f85d3007f0cda961,
@@ -5402,7 +5401,6 @@ MonoBehaviour:
   sensitivity: 75000
   nextPageAnimator: {fileID: 0}
   prevPageAnimator: {fileID: 1961392625}
-  clicked: 0
 --- !u!65 &1829353946
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8314,7 +8312,6 @@ MonoBehaviour:
   sensitivity: 75000
   nextPageAnimator: {fileID: 1541019098}
   prevPageAnimator: {fileID: 826128203}
-  clicked: 0
 --- !u!1 &3372906539014410734
 GameObject:
   m_ObjectHideFlags: 0
@@ -8886,6 +8883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbb2125b912efe45a2d435f259ba468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tapToMove: 0
+  isMoving: 0
   player: {fileID: 9200487878732732010}
   targetMark: {fileID: 10528080}
   rayDistance: 50
@@ -8893,6 +8892,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   playerCamera: {fileID: 164387662}
+  swipeDist: 0
 --- !u!33 &4000610944086580913
 MeshFilter:
   m_ObjectHideFlags: 0

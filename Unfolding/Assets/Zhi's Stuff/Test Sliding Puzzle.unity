@@ -433,10 +433,7 @@ MonoBehaviour:
   gameTransform: {fileID: 882858542}
   piecePrefab: {fileID: 2483811475420253484, guid: d4d5df2f11a572c4fb133a4606bf8194,
     type: 3}
-  pieces: []
-  emptyLocation: 0
-  size: 0
-  shuffling: 0
+  size: 4
 --- !u!1 &958755724
 GameObject:
   m_ObjectHideFlags: 0

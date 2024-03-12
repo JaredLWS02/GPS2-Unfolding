@@ -11,7 +11,7 @@ public class SlidingPuzzleHandler : MonoBehaviour
 
   private List<Transform> pieces;
   private int emptyLocation;
-  private int size;
+  [SerializeField] int size = 4;
   private bool shuffling = false;
 
   // Create the game setup with size x size pieces.
@@ -62,7 +62,6 @@ public class SlidingPuzzleHandler : MonoBehaviour
   // Start is called before the first frame update
   void Start() {
     pieces = new List<Transform>();
-    size = 4;
     CreateGamePieces(0.01f);
   }
 
