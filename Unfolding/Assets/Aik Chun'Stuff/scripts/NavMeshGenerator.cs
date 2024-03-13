@@ -1,24 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class NavMeshGenerator : MonoBehaviour
 {
     [SerializeField] private NavMeshSurface nav;
+    [SerializeField] private NavMeshAgent player;
 
     private bool doOnce;
 
-    //[SerializeField] private NavMeshData data;
-    //[SerializeField] private NavMeshModifierVolume v;
-    //[SerializeField] private GameObject obstacles;
     // Start is called before the first frame update
     void Awake()
     {
-        doOnce = true;
+        //doOnce = true;
 
-        if(nav != null)
+        if (nav != null)
         {
             nav.UpdateNavMesh(nav.navMeshData);
         }
@@ -32,34 +31,38 @@ public class NavMeshGenerator : MonoBehaviour
     {
         if (PageFlip.flipped == true && doOnce == false)
         {
-            Debug.Log("generated nav mesh");  
-            nav.UpdateNavMesh(nav.navMeshData);
+            Debug.Log("generated nav mesh");
+            //if(!nav.isActiveAndEnabled)
+            //{
+                StartCoroutine(enableNavMesh());
+            //
             doOnce = true;
         }
-        else if(PageFlip.flipped == false && doOnce == true) 
+        else if (PageFlip.flipped == false && doOnce == true)
         {
+            //StartCoroutine(enableNavMesh());
+
             doOnce = false;
         }
+
+        if(PageFlip.clicked)
+        {
+            player.enabled = false;
+            nav.enabled = false;
+        }
+        else
+        {
+            player.enabled = true;
+            nav.enabled = true;
+        }
     }
-    //// Update is called once per frame
-    //void Update()
-    //{
 
-    //}
+    private IEnumerator enableNavMesh()
+    {
+        nav.enabled = true;
+        nav.UpdateNavMesh(nav.navMeshData);
+        yield return new WaitForSeconds(0.1f);
+        player.enabled = true;
 
-    //void UpdateMesh()
-    //{
-    //    if (v.area == 1)
-    //    {
-    //        obstacles.SetActive(false);
-    //        v.area = 0;
-    //    }
-    //    else
-    //    {
-    //        obstacles.SetActive(true);
-    //        v.area = 1;
-    //    }
-    //    //nav.BuildNavMesh();
-    //    nav.UpdateNavMesh(data);
-    //}
+    }
 }
