@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PageHandler : MonoBehaviour
 {
@@ -44,6 +46,7 @@ public class PageHandler : MonoBehaviour
         else if (Input.GetMouseButtonUp(0) && hit.collider.tag == "Edge")
         {
             frog.transform.position = t.position;
+            StartCoroutine(setpos());
         }
 
         if (PageFlip.flipped == false)
@@ -55,8 +58,19 @@ public class PageHandler : MonoBehaviour
 
         if (hit.transform != null && hit.collider.tag == "Edge")
             t = hit.transform.Find("Spawn Point").GetComponent<Transform>();
+
     }
 
+    private IEnumerator setpos()
+    {
+        NavMeshHit hit;
+
+        while (!NavMesh.SamplePosition(t.position, out hit, 0.3f, NavMesh.AllAreas))
+        {
+            yield return null;
+        }
+            frog.GetComponent<NavMeshAgent>().Warp(hit.position);
+    }
 
     public void NavMap1()
     {

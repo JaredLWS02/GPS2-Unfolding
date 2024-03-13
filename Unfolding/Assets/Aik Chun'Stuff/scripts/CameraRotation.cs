@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CameraRotation : MonoBehaviour
 {
     private Vector2 SwipeStartPos;
     private Vector2 SwipeEndPos;
     private bool isRotating = false;
+    private bool startRot;
     private float startRotation;
     private float EndRotation;
 
@@ -15,10 +18,15 @@ public class CameraRotation : MonoBehaviour
     [SerializeField] private float RotationAngle;
     [SerializeField] private PlayerMovement pm;
     [SerializeField] private GameObject player;
+
+    [Header("Assign objects other that player that you want to rotate")]
+    [SerializeField] private List<GameObject> thingsToRotate = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
         startRotation = transform.eulerAngles.y;
+        startRot = true;
     }
 
     private void Update()
@@ -27,66 +35,80 @@ public class CameraRotation : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (!isRotating && !GameEventManager.isTouchObject)
+        if(!GameEventManager.isTouchObject && !GameEventManager.isTouchPage)
         {
-            pm.isRotate = false;
-            if (Input.touchCount > 0)
+            if (!isRotating && !pm.isMoving)
             {
+                if (Input.touchCount > 0)
+                {
                     if (Input.GetTouch(0).phase == TouchPhase.Began)
                     {
                         startRotation = transform.eulerAngles.y;
                         SwipeStartPos = Input.GetTouch(0).position;
+                        startRot = true;
+                        pm.isRotate = false;
                     }
 
-                    if(Input.touchCount < 2)
-                {
-                    if (Input.GetTouch(0).phase == TouchPhase.Ended)
+                    if (Input.touchCount < 2)
                     {
-                        SwipeEndPos = Input.GetTouch(0).position;
-                        float swipedistance = SwipeEndPos.magnitude - SwipeStartPos.magnitude;
-
-                        if (swipedistance > MinSwipeDistance || swipedistance < -MinSwipeDistance)
+                        if (Input.GetTouch(0).phase == TouchPhase.Ended && startRot)
                         {
-                            isRotating = true;
+                            SwipeEndPos = Input.GetTouch(0).position;
+                            float swipedistance = SwipeEndPos.x - SwipeStartPos.x;
 
-                            if (swipedistance > 0)
+                            if (swipedistance > MinSwipeDistance || swipedistance < -MinSwipeDistance)
                             {
-                                StartCoroutine(RotateCamRight());
+                                isRotating = true;
+
+                                if (swipedistance > 0)
+                                {
+                                    StartCoroutine(RotateCamRight());
+                                }
+                                else
+                                {
+                                    StartCoroutine(RotateCamLeft());
+                                }
                             }
-                            else
-                            {
-                                StartCoroutine(RotateCamLeft());
-                            }
+
                         }
 
                     }
-
                 }
             }
         }
         else
         {
-            pm.isRotate = true;
+            startRot = false;
         }
     }
 
     private IEnumerator RotateCamRight()
     {
+        pm.isRotate = true;
         EndRotation = startRotation + RotationAngle;
         while(isRotating)
         {
             transform.Rotate(0, (float)(RotationSpeed * Time.deltaTime), 0);
             player.transform.Rotate(0, (float)(RotationSpeed * Time.deltaTime), 0);
-            if (transform.eulerAngles.y >= EndRotation - 10)
+
+            if (transform.eulerAngles.y >= EndRotation - 10.0f)
             {
                 if (EndRotation >= 360)
                 {
                     startRotation = 0;
                     EndRotation = 0;
                 }
+
+                isRotating = false;
+                pm.isRotate = false;
+
                 transform.rotation = Quaternion.Euler(0, EndRotation, 0);
                 player.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
-                isRotating = false;
+
+                foreach (GameObject trans in thingsToRotate)
+                {
+                    trans.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
+                }
             }
             yield return null;
         }
@@ -94,6 +116,7 @@ public class CameraRotation : MonoBehaviour
 
     private IEnumerator RotateCamLeft()
     {
+        pm.isRotate = true;
         if (startRotation == 0)
         {
             EndRotation = 360 + (-RotationAngle);
@@ -107,19 +130,27 @@ public class CameraRotation : MonoBehaviour
         {
             transform.Rotate(0, (float)(-RotationSpeed * Time.deltaTime), 0);
             player.transform.Rotate(0, (float)(-RotationSpeed * Time.deltaTime), 0);
-            if (transform.eulerAngles.y <= EndRotation + 10)
+            if (transform.eulerAngles.y <= EndRotation + 10.0f)
             {
                 if (EndRotation <= -360)
                 {
                     startRotation = 0;
                     EndRotation = 0;
                 }
+                isRotating = false;
+                pm.isRotate = false;
+
                 transform.rotation = Quaternion.Euler(0, EndRotation, 0);
                 player.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
-                isRotating = false;
+
+                foreach (GameObject trans in thingsToRotate)
+                {
+                    trans.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
+                }
             }
             yield return null;
         }
 
     }
+
 }

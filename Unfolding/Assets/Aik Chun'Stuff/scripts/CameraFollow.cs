@@ -16,21 +16,32 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        if (GameEventManager.isTouchPage == false)
+        if(gameObject.transform.GetChild(0).gameObject.activeSelf)
         {
-            Vector3 desiredPosition = player.transform.position + offset;
-            GetComponentInChildren<Camera>().fieldOfView = 34;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            //transform.position = smoothedPosition;
-            transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, 0, limit), Mathf.Clamp(transform.position.y, 0, 0), Mathf.Clamp(transform.position.z, 0, 0));
-        }
-        else
-        {
-            Vector3 desiredPosition = new Vector3(17.13f, 7.7f, -20.4f);
-            GetComponentInChildren<Camera>().fieldOfView = 60;
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            //transform.position = smoothedPosition;
-            transform.position = desiredPosition;
+            if (GameEventManager.isTouchPage == false)
+            {
+                Vector3 desiredPosition = player.transform.position + offset;
+                GetComponentInChildren<Camera>().fieldOfView = 34;
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+                //transform.position = smoothedPosition;
+                if (transform.position.z <= -10.55f)
+                {
+                    transform.position = new Vector3(-16.2f, Mathf.Clamp(transform.position.y, 0, 0), 3.56f);
+                }
+                else
+                {
+                    transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, -16.2f, limit), Mathf.Clamp(transform.position.y, 0, 0), transform.position.z);
+                }
+            }
+            else
+            {
+                Vector3 desiredPosition = new Vector3(2.13f, 7.7f, -10.55f);
+                GetComponentInChildren<Camera>().fieldOfView = 60;
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+                //transform.position = smoothedPosition;
+                transform.position = desiredPosition;
+            }
+
         }
     }
 

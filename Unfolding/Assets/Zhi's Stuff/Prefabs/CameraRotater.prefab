@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3435504212471796103}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12931462, y: -0, z: -0, w: 0.9916036}
-  m_LocalPosition: {x: -15.81, y: 3.854, z: -6.575}
+  m_LocalRotation: {x: 0.1293148, y: -0, z: -0, w: 0.9916036}
+  m_LocalPosition: {x: 0, y: 3.85, z: -12.769999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66,7 +66,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 26.9914
+  field of view: 34
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -101,8 +101,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 737922027927086491}
-  - component: {fileID: 2767559280668346292}
   - component: {fileID: 5533074816009351493}
+  - component: {fileID: 2767559280668346292}
   m_Layer: 0
   m_Name: CameraRotater
   m_TagString: Untagged
@@ -119,30 +119,13 @@ Transform:
   m_GameObject: {fileID: 5816831381721158725}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -16.2, y: 0, z: 3.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1657981161265930536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2767559280668346292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5816831381721158725}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a2c2fb48b5180941acc6953ee092e0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MinSwipeDistance: 50
-  RotationSpeed: 180
-  RotationAngle: 90
-  pm: {fileID: 0}
-  player: {fileID: 0}
 --- !u!114 &5533074816009351493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +139,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  offset: {x: 17, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   smoothSpeed: 0.5
   limit: 35
+--- !u!114 &2767559280668346292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5816831381721158725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2c2fb48b5180941acc6953ee092e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinSwipeDistance: 100
+  RotationSpeed: 180
+  RotationAngle: 90
+  pm: {fileID: 0}
+  player: {fileID: 0}
+  thingsToRotate:
+  - {fileID: 0}
