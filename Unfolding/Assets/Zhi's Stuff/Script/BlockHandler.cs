@@ -11,7 +11,7 @@ public class BlockHandler : MonoBehaviour
     public void OnClick()
     {
         temp = this.gameObject;
-
+        GameEventManager.isTouchObject = true;
         GetComponentInParent<SlidingPuzzleHandler>().OnClick(temp);
     }
 }
