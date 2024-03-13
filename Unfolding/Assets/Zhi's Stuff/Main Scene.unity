@@ -177,7 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebuggingText: {fileID: 651323842}
   sensitivity: 75000
-  nextPageAnimator: {fileID: 2125758946}
+  nextPageAnimator: {fileID: 0}
   prevPageAnimator: {fileID: 1477983904}
 --- !u!65 &27757241
 BoxCollider:
