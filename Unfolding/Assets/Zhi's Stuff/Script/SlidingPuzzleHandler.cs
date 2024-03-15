@@ -11,11 +11,12 @@ public class SlidingPuzzleHandler : MonoBehaviour
 
   private List<Transform> pieces;
   private int emptyLocation;
-  private int size;
-  private bool shuffling = false;
+  [SerializeField] int size = 4;
+    private bool shuffling = false;
+    private bool firstTime = true;
 
-  // Create the game setup with size x size pieces.
-  private void CreateGamePieces(float gapThickness) {
+    // Create the game setup with size x size pieces.
+    private void CreateGamePieces(float gapThickness) {
     // This is the width of each tile.
     float width = 1 / (float)size;
     for (int row = 0; row < size; row++) 
@@ -62,20 +63,22 @@ public class SlidingPuzzleHandler : MonoBehaviour
   // Start is called before the first frame update
   void Start() {
     pieces = new List<Transform>();
-    size = 4;
     CreateGamePieces(0.01f);
-  }
+        GameEventManager.isTouchObject = true;
+    }
 
   // Update is called once per frame
   void Update() 
     {
-    // Check for completion.
-    if (!shuffling && CheckCompletion()) {
-      shuffling = true;
-      StartCoroutine(WaitShuffle(0.5f));
-    }
-  }
-    public void OnClick(GameObject temp)
+        GameEventManager.isTouchObject = true;
+
+        // Check for completion.
+        if (!shuffling && CheckCompletion()) 
+        {
+            shuffling = true;
+            StartCoroutine(WaitShuffle(0.5f));
+        }
+    }public void OnClick(GameObject temp)
     {
         for (int i = 0; i < pieces.Count; i++)
         {
@@ -107,13 +110,32 @@ public class SlidingPuzzleHandler : MonoBehaviour
 
   // We name the pieces in order so we can use this to check completion.
   private bool CheckCompletion() {
-    for (int i = 0; i < pieces.Count; i++) {
-      if (pieces[i].name != $"{i}") {
-        return false;
-      }
+        if (firstTime == true)
+        {
+            for (int i = 0; i < pieces.Count; i++)
+            {
+                if (pieces[i].name != $"{i}")
+                {
+                    firstTime = false;
+                    return false;
+                }
+            }
+            return true;
+        }
+        else
+        {
+            for (int i = 0; i < pieces.Count; i++)
+            {
+                if (pieces[i].name != $"{i}")
+                {
+                    return false;
+                }
+            }
+            GameEventManager.isTouchObject = false;
+            this.gameObject.SetActive(false);
+            return true;
+        }
     }
-    return true;
-  }
 
   private IEnumerator WaitShuffle(float duration) {
     yield return new WaitForSeconds(duration);
@@ -122,7 +144,7 @@ public class SlidingPuzzleHandler : MonoBehaviour
   }
 
   // Brute force shuffling.
-  private void Shuffle() {
+   public void Shuffle() {
     int count = 0;
     int last = 0;
     while (count < (size * size * size)) {
@@ -143,5 +165,11 @@ public class SlidingPuzzleHandler : MonoBehaviour
       }
     }
   }
+
+    public void Close()
+    {
+        GameEventManager.isTouchObject = false;
+        this.gameObject.SetActive (false);
+    }
 }
 
