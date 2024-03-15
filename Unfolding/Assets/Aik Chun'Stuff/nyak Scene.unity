@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1977,6 +1977,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 711909552545374406}
+    - target: {fileID: 2767559280668346292, guid: 74dd8f060ce697742a1e873755bbe12f,
+        type: 3}
+      propertyPath: thingsToRotate.Array.data[0]
+      value: 
+      objectReference: {fileID: 10528080}
     - target: {fileID: 3784327348318367698, guid: 74dd8f060ce697742a1e873755bbe12f,
         type: 3}
       propertyPath: field of view
@@ -13863,6 +13868,11 @@ PrefabInstance:
       propertyPath: nav
       value: 
       objectReference: {fileID: 4083430922420278983}
+    - target: {fileID: 6683183323231734687, guid: 613d993eac3adc84b893f5e1487a141b,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 9200487878732732010}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23903,7 +23913,6 @@ MonoBehaviour:
   sensitivity: 75000
   nextPageAnimator: {fileID: 574932857}
   prevPageAnimator: {fileID: 1676874336}
-  clicked: 0
 --- !u!1 &1655932807
 GameObject:
   m_ObjectHideFlags: 0
@@ -27772,7 +27781,6 @@ MonoBehaviour:
   sensitivity: 75000
   nextPageAnimator: {fileID: 0}
   prevPageAnimator: {fileID: 1961392625}
-  clicked: 0
 --- !u!65 &1829353946
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34115,7 +34123,7 @@ Transform:
   m_GameObject: {fileID: 711909552545374406}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.39, y: 0.675, z: -2.18}
+  m_LocalPosition: {x: 17.04, y: 0.675, z: -2.18}
   m_LocalScale: {x: 0.06442834, y: 0.06442834, z: 0.06442834}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -34850,7 +34858,6 @@ MonoBehaviour:
   sensitivity: 75000
   nextPageAnimator: {fileID: 1541019098}
   prevPageAnimator: {fileID: 826128203}
-  clicked: 0
 --- !u!1 &3372906539014410734
 GameObject:
   m_ObjectHideFlags: 0
@@ -35422,6 +35429,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbb2125b912efe45a2d435f259ba468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tapToMove: 0
+  isMoving: 0
   player: {fileID: 9200487878732732010}
   targetMark: {fileID: 10528080}
   rayDistance: 50

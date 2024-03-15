@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour
                 //transform.position = smoothedPosition;
                 if (transform.position.z <= -10.55f)
                 {
-                    transform.position = new Vector3(-16.2f, Mathf.Clamp(transform.position.y, 0, 0), 3.56f);
+                    transform.position = new Vector3(-16.2f, Mathf.Clamp(transform.position.y, 0, 0), 0.0f);
                 }
                 else
                 {
