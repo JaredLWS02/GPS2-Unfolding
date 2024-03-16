@@ -107,7 +107,10 @@ public class CameraRotation : MonoBehaviour
 
                 foreach (GameObject trans in thingsToRotate)
                 {
-                    trans.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
+                    if(trans != null)
+                    {
+                        trans.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
+                    }
                 }
             }
             yield return null;
@@ -145,7 +148,10 @@ public class CameraRotation : MonoBehaviour
 
                 foreach (GameObject trans in thingsToRotate)
                 {
-                    trans.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
+                    if (trans != null)
+                    {
+                        trans.transform.rotation = Quaternion.Euler(0, EndRotation, 0);
+                    }
                 }
             }
             yield return null;

@@ -23,6 +23,7 @@ public class NavMeshGenerator : MonoBehaviour
         }
         else
         {
+            nav.BuildNavMesh();
             Debug.Log("You forgot to reference the navmesh. But it not big deal");
         }
     }
@@ -52,16 +53,21 @@ public class NavMeshGenerator : MonoBehaviour
         }
         else
         {
-            player.enabled = true;
-            nav.enabled = true;
+            if(PageFlip.flipped)
+            {
+                player.enabled = true;
+                nav.enabled = true;
+            }
         }
     }
 
     private IEnumerator enableNavMesh()
     {
         nav.enabled = true;
-        nav.UpdateNavMesh(nav.navMeshData);
-        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForSeconds(0.02f);
+        nav.BuildNavMesh();
+        //nav.UpdateNavMesh(nav.navMeshData);
+        yield return new WaitForSeconds(0.2f);
         player.enabled = true;
 
     }
