@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1.104
       objectReference: {fileID: 0}
+    - target: {fileID: 3008346576087359046, guid: e3823da3a9ead764aadd89fdc0eb7950,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.11
+      objectReference: {fileID: 0}
     - target: {fileID: 3511006351970742996, guid: e3823da3a9ead764aadd89fdc0eb7950,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -296,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 8161481699393061892, guid: e3823da3a9ead764aadd89fdc0eb7950,
         type: 3}
       propertyPath: m_Name
-      value: NPC new Variant
+      value: Beaver NPC
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

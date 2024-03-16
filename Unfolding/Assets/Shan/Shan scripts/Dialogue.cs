@@ -15,22 +15,30 @@ public class Dialogue : MonoBehaviour
     public TMP_Text dialogueText;
     //dialogue lists
     public List<string> dialogues;
+    //writing speed
+    public float writingSpeed;
+    // Sound effect
+    public AudioClip dialogueSound;
+
     //Index on dialogue
     private int index;
     //character index
     private int charIndex;
     //Started boolean
     private bool started;
-    //writing speed
-    public float writingSpeed;
     //wait for next boolean
     private bool waitForNext;
+    // AudioSource component
+    private AudioSource audioSource;
+
 
     [SerializeField] private DialogueTrigger tri;
     private void Awake()
     {
+        
         ToggleWindow(false);
         ToggleIndicator(false);
+        
     }
 
     private void ToggleWindow(bool show) //
@@ -41,6 +49,7 @@ public class Dialogue : MonoBehaviour
     {
         indicator.SetActive(show);
     }
+
 
     public void StartDialogue()//
     {
@@ -61,8 +70,12 @@ public class Dialogue : MonoBehaviour
 
         //GetDialogue(0); //Start with first dialogue
 
+       
+
         StartCoroutine(Writing());//Start writing
     }
+
+    
     private void GetDialogue(int i) //
     {
         index = i; //start index at zero
@@ -97,6 +110,12 @@ public class Dialogue : MonoBehaviour
         string currentDialogue = dialogues[index];
         dialogueText.text += currentDialogue[charIndex]; //Write the character
         charIndex++; //increase the character index 
+
+        if (dialogueSound != null)
+        {
+            AudioSource.PlayClipAtPoint(dialogueSound, transform.position);
+        }
+
 
         //make sure you have reached the end of the sentence
         if (charIndex <= currentDialogue.Length - 1)
