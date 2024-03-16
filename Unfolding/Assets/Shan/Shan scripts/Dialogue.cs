@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,22 +15,30 @@ public class Dialogue : MonoBehaviour
     public TMP_Text dialogueText;
     //dialogue lists
     public List<string> dialogues;
+    //writing speed
+    public float writingSpeed;
+    // Sound effect
+    public AudioClip dialogueSound;
+
     //Index on dialogue
     private int index;
     //character index
     private int charIndex;
     //Started boolean
     private bool started;
-    //writing speed
-    public float writingSpeed;
     //wait for next boolean
     private bool waitForNext;
+    // AudioSource component
+    private AudioSource audioSource;
+
 
     [SerializeField] private DialogueTrigger tri;
     private void Awake()
     {
+        
         ToggleWindow(false);
         ToggleIndicator(false);
+        
     }
 
     private void ToggleWindow(bool show) //
@@ -41,9 +50,10 @@ public class Dialogue : MonoBehaviour
         indicator.SetActive(show);
     }
 
+
     public void StartDialogue()//
     {
-        if (started) 
+        if (started)
         {
             return;
         }
@@ -60,9 +70,13 @@ public class Dialogue : MonoBehaviour
 
         //GetDialogue(0); //Start with first dialogue
 
+       
+
         StartCoroutine(Writing());//Start writing
     }
-    private void GetDialogue(int i ) //
+
+    
+    private void GetDialogue(int i) //
     {
         index = i; //start index at zero
         charIndex = 0; //Reset the character index           
@@ -97,6 +111,12 @@ public class Dialogue : MonoBehaviour
         dialogueText.text += currentDialogue[charIndex]; //Write the character
         charIndex++; //increase the character index 
 
+        if (dialogueSound != null)
+        {
+            AudioSource.PlayClipAtPoint(dialogueSound, transform.position);
+        }
+
+
         //make sure you have reached the end of the sentence
         if (charIndex <= currentDialogue.Length - 1)
         {
@@ -111,31 +131,31 @@ public class Dialogue : MonoBehaviour
             waitForNext = true; //End this sentence and wait for the next one
         }
 
-    }   
+    }
 
     void Update() //
     {
-            if (!started)
-                return;
+        if (!started)
+            return;
 
-            if (waitForNext && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (waitForNext && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            waitForNext = false;
+
+            index++;
+
+            //Check if we are in the scope of dialogues list
+            if (index < dialogues.Count)
             {
-                waitForNext = false;
-                
-                index++;
-
-                //Check if we are in the scope of dialogues list
-                if (index < dialogues.Count)
-                {
-                    //ifso fetch the next dialogue
-                    GetDialogue(index);
-                }
-                else 
-                {
-                // If not, end the dialogue process
-                    ToggleIndicator(true);
-                    EndDialogue();
-                }
+                //ifso fetch the next dialogue
+                GetDialogue(index);
             }
-    }   
+            else
+            {
+                // If not, end the dialogue process
+                ToggleIndicator(true);
+                EndDialogue();
+            }
+        }
+    }
 }
