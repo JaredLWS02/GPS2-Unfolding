@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Aik Chun'Stuff/nyak Scene.unity
     guid: 4f545181eb00beb42b4c889d2fd720fa
   - enabled: 1
-    path: Assets/Aik Chun'Stuff/Nyak ui test.unity
+    path: Assets/Aik Chun'Stuff/Nyak Test Scene (With UI).unity
     guid: 6232998824376b1418debd274a2bb50c
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
