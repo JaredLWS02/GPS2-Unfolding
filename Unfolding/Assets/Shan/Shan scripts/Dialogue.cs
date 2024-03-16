@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,7 +44,7 @@ public class Dialogue : MonoBehaviour
 
     public void StartDialogue()//
     {
-        if (started) 
+        if (started)
         {
             return;
         }
@@ -62,7 +63,7 @@ public class Dialogue : MonoBehaviour
 
         StartCoroutine(Writing());//Start writing
     }
-    private void GetDialogue(int i ) //
+    private void GetDialogue(int i) //
     {
         index = i; //start index at zero
         charIndex = 0; //Reset the character index           
@@ -111,31 +112,31 @@ public class Dialogue : MonoBehaviour
             waitForNext = true; //End this sentence and wait for the next one
         }
 
-    }   
+    }
 
     void Update() //
     {
-            if (!started)
-                return;
+        if (!started)
+            return;
 
-            if (waitForNext && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (waitForNext && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            waitForNext = false;
+
+            index++;
+
+            //Check if we are in the scope of dialogues list
+            if (index < dialogues.Count)
             {
-                waitForNext = false;
-                
-                index++;
-
-                //Check if we are in the scope of dialogues list
-                if (index < dialogues.Count)
-                {
-                    //ifso fetch the next dialogue
-                    GetDialogue(index);
-                }
-                else 
-                {
-                // If not, end the dialogue process
-                    ToggleIndicator(true);
-                    EndDialogue();
-                }
+                //ifso fetch the next dialogue
+                GetDialogue(index);
             }
-    }   
+            else
+            {
+                // If not, end the dialogue process
+                ToggleIndicator(true);
+                EndDialogue();
+            }
+        }
+    }
 }
