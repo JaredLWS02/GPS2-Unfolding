@@ -19,6 +19,9 @@ public class Dialogue : MonoBehaviour
     public float writingSpeed;
     // Sound effect
     public AudioClip dialogueSound;
+    // Sound effect for dialogue trigger
+    public AudioClip triggerSound;
+    
 
     //Index on dialogue
     private int index;
@@ -32,10 +35,11 @@ public class Dialogue : MonoBehaviour
     private AudioSource audioSource;
 
 
+
     [SerializeField] private DialogueTrigger tri;
     private void Awake()
     {
-        
+        audioSource = GetComponent<AudioSource>();
         ToggleWindow(false);
         ToggleIndicator(false);
         
@@ -70,12 +74,22 @@ public class Dialogue : MonoBehaviour
 
         //GetDialogue(0); //Start with first dialogue
 
-       
+        // Play trigger sound
+        PlayTriggerSound();
+
+
 
         StartCoroutine(Writing());//Start writing
     }
 
-    
+    private void PlayTriggerSound()
+    {
+        if (triggerSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(triggerSound);
+        }
+    }
+
     private void GetDialogue(int i) //
     {
         index = i; //start index at zero
@@ -111,7 +125,7 @@ public class Dialogue : MonoBehaviour
         dialogueText.text += currentDialogue[charIndex]; //Write the character
         charIndex++; //increase the character index 
 
-        if (dialogueSound != null)
+        if (dialogueSound != null && audioSource != null)
         {
             AudioSource.PlayClipAtPoint(dialogueSound, transform.position);
         }
