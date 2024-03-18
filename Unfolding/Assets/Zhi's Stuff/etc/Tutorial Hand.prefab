@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 6916288104648015182}
   - component: {fileID: 8912245722547579640}
   m_Layer: 0
-  m_Name: Tutorial
+  m_Name: Tutorial Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
