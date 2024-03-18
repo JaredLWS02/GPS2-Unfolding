@@ -11789,6 +11789,11 @@ PrefabInstance:
       objectReference: {fileID: 5225917968328730743}
     - target: {fileID: 4850307062841390736, guid: 7082e60c4722dc04d8b121a83417c928,
         type: 3}
+      propertyPath: m_fontSize
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850307062841390736, guid: 7082e60c4722dc04d8b121a83417c928,
+        type: 3}
       propertyPath: m_margin.w
       value: -0.08822608
       objectReference: {fileID: 0}
@@ -11806,6 +11811,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_margin.z
       value: -0.08784413
+      objectReference: {fileID: 0}
+    - target: {fileID: 4850307062841390736, guid: 7082e60c4722dc04d8b121a83417c928,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317249744974520654, guid: 7082e60c4722dc04d8b121a83417c928,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.075
       objectReference: {fileID: 0}
     - target: {fileID: 5963058421806123913, guid: 7082e60c4722dc04d8b121a83417c928,
         type: 3}
@@ -11874,9 +11889,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7358651232478848069, guid: 7082e60c4722dc04d8b121a83417c928,
         type: 3}
+      propertyPath: triggerSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9b3d9118978c45e44a9ebc387eb245ca, type: 3}
+    - target: {fileID: 7358651232478848069, guid: 7082e60c4722dc04d8b121a83417c928,
+        type: 3}
       propertyPath: writingSpeed
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 7358651232478848069, guid: 7082e60c4722dc04d8b121a83417c928,
+        type: 3}
+      propertyPath: dialogueSound
+      value: 
+      objectReference: {fileID: 8300000, guid: eedf93e32b71d864b8c0584c71777a65, type: 3}
     - target: {fileID: 7358651232478848069, guid: 7082e60c4722dc04d8b121a83417c928,
         type: 3}
       propertyPath: dialogues.Array.size
@@ -11885,7 +11910,7 @@ PrefabInstance:
     - target: {fileID: 7358651232478848069, guid: 7082e60c4722dc04d8b121a83417c928,
         type: 3}
       propertyPath: dialogues.Array.data[0]
-      value: Hello my friend
+      value: Hello my friend, how are you
       objectReference: {fileID: 0}
     - target: {fileID: 7358651232478848069, guid: 7082e60c4722dc04d8b121a83417c928,
         type: 3}
@@ -11895,7 +11920,7 @@ PrefabInstance:
     - target: {fileID: 7358651232478848069, guid: 7082e60c4722dc04d8b121a83417c928,
         type: 3}
       propertyPath: dialogues.Array.data[2]
-      value: whatt in fck is tthis
+      value: What the fvk
       objectReference: {fileID: 0}
     - target: {fileID: 7358651232478848069, guid: 7082e60c4722dc04d8b121a83417c928,
         type: 3}

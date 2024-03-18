@@ -134,13 +134,18 @@ PrefabInstance:
     - target: {fileID: 4207950391514363429, guid: b3fd5a87fd26b224791a499259b6920b,
         type: 3}
       propertyPath: m_Name
-      value: NPC Variant Variant
+      value: NPC new
       objectReference: {fileID: 0}
     - target: {fileID: 6143251867294335299, guid: b3fd5a87fd26b224791a499259b6920b,
         type: 3}
       propertyPath: npcCamera
       value: 
       objectReference: {fileID: 1034016911673083411}
+    - target: {fileID: 7104718195892825191, guid: b3fd5a87fd26b224791a499259b6920b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7670505957311925569, guid: b3fd5a87fd26b224791a499259b6920b,
         type: 3}
       propertyPath: npcCamera
