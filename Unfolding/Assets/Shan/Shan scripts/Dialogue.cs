@@ -31,15 +31,14 @@ public class Dialogue : MonoBehaviour
     private bool started;
     //wait for next boolean
     private bool waitForNext;
-    // AudioSource component
-    private AudioSource audioSource;
+    
 
 
 
     [SerializeField] private DialogueTrigger tri;
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        
         ToggleWindow(false);
         ToggleIndicator(false);
         
@@ -68,27 +67,22 @@ public class Dialogue : MonoBehaviour
 
         ToggleIndicator(false); //hide the indicator
 
+        // Play the dialogue trigger sound
+        if (triggerSound != null)
+        {
+            AudioSource.PlayClipAtPoint(triggerSound, transform.position);
+        }
+
+
         index = 0; // Start with the first dialogue
         charIndex = 0; // Reset character index
         dialogueText.text = string.Empty; // Clear dialogue text
 
         //GetDialogue(0); //Start with first dialogue
 
-        // Play trigger sound
-        PlayTriggerSound();
-
-
-
         StartCoroutine(Writing());//Start writing
     }
 
-    private void PlayTriggerSound()
-    {
-        if (triggerSound != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(triggerSound);
-        }
-    }
 
     private void GetDialogue(int i) //
     {
@@ -125,7 +119,7 @@ public class Dialogue : MonoBehaviour
         dialogueText.text += currentDialogue[charIndex]; //Write the character
         charIndex++; //increase the character index 
 
-        if (dialogueSound != null && audioSource != null)
+        if (dialogueSound != null)
         {
             AudioSource.PlayClipAtPoint(dialogueSound, transform.position);
         }
