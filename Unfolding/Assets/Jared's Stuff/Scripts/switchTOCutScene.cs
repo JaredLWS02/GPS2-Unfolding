@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class switchTOCutScene : MonoBehaviour
 {
-    [SerializeField] private Camera mainCam;
-    [SerializeField] private Camera cutSceneCam;
+    [SerializeField] private GameObject mainCam;
+    [SerializeField] private GameObject cutSceneCam;
     [SerializeField] private GameObject cutScene;
 
     // Start is called before the first frame update
     void Start()
     {
         cutScene.SetActive(false);
-        cutSceneCam.enabled = false;
+        cutSceneCam.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,8 +25,8 @@ public class switchTOCutScene : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            mainCam.enabled = false;
-            cutSceneCam.enabled = true;
+            mainCam.SetActive(false);
+            cutSceneCam.SetActive(true);
             cutScene.SetActive(true);
         }
     }
