@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class switchTOCutScene : MonoBehaviour
+public class cutSceneEnd : MonoBehaviour
 {
     [SerializeField] private GameObject mainCam;
     [SerializeField] private GameObject cutSceneCam;
@@ -14,8 +14,7 @@ public class switchTOCutScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cutScene.SetActive(false);
-        cutSceneCam.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -24,17 +23,14 @@ public class switchTOCutScene : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider col)
+    public void endScene()
     {
-        if(col.gameObject.tag == "Player")
-        {
-            anim1.enabled = true;
-            anim2.enabled = true; 
-            anim3.enabled = true;
-            mainCam.SetActive(false);
-            cutSceneCam.SetActive(true);
-            cutScene.SetActive(true);
-            this.gameObject.SetActive(false);
-        }
+        anim1.enabled = false;
+        anim2.enabled = false;
+        anim3.enabled = false;
+        cutSceneCam.SetActive(false);
+        mainCam.SetActive(true);
+        cutScene.SetActive(false);
+
     }
 }
