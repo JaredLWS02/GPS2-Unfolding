@@ -10,11 +10,24 @@ public class DialogueTrigger : MonoBehaviour
     public GameObject playerObject;
     public Collider playerCollider; // Collider to disable player detection
     public Transform respawnPoint; // New spawn point for the player
+    public Transform dialoguePlayerPosition; // New position for the player during dialogue
+
 
     private bool playerDetected;
+    private bool dialogueInProgress;
+    //private Vector3 originalPlayerPosition; // To store the original position of the player
 
     //Detect trigger with player
     private void OnTriggerEnter(Collider collision)
+    {
+        //if we triggered the player enable player detected and show indicator
+        if (collision.tag == "Player" && !dialogueInProgress)
+        {
+            Debug.Log("Player entered trigger zone.");
+            StartDialogue();
+        }
+    }
+    /*private void OnTriggerEnter(Collider collision)
     {
         //if we triggered the player enable player detected and shhow indicator
         if (collision.tag == "Player")
@@ -28,10 +41,42 @@ public class DialogueTrigger : MonoBehaviour
             // Start dialogue immediately
             dialogueScript.StartDialogue();
 
+            // Store the original position of the player
+            //originalPlayerPosition = playerObject.transform.position;
+
+            // Position the player at the dialoguePlayerPosition
+            playerObject.transform.position = dialoguePlayerPosition.position;
+
             // Disable player object and its collider
-            playerObject.SetActive(false);
+            //playerObject.SetActive(false);
             playerCollider.enabled = false;
         }
+    }*/
+
+    public void StartDialogue()
+    {
+        playerDetected = true;
+        dialogueInProgress = true;
+        dialogueScript.ToggleIndicator(playerDetected);
+        // Activate NPC camera
+        npcCamera.gameObject.SetActive(true);
+        // Deactivate main camera
+        mainCamera.gameObject.SetActive(false);
+        // Start dialogue immediately
+        dialogueScript.StartDialogue();
+
+        Debug.Log("Player position before dialogue: " + playerObject.transform.position);
+
+        // Position the player at the dialoguePlayerPosition
+        playerObject.transform.position = dialoguePlayerPosition.position;
+
+        // Disable player collider
+        playerCollider.enabled = false;
+    }
+    private void EndDialogue()
+    {
+        dialogueInProgress = false;
+        enablePlayer();
     }
 
     private void OnTriggerExit(Collider collision)
@@ -39,9 +84,21 @@ public class DialogueTrigger : MonoBehaviour
         //if we lost trigger with the player disable player detected and hide indicator
         if (collision.tag == "Player")
         {
-            enablePlayer();
+            if (!dialogueInProgress)
+            {
+                enablePlayer();
+            }
         }
     }
+
+    /*private void OnTriggerExit(Collider collision)
+    {
+        //if we lost trigger with the player disable player detected and hide indicator
+        if (collision.tag == "Player")
+        {
+            enablePlayer();
+        }
+    }*/
 
     public void enablePlayer()
     {
@@ -59,6 +116,8 @@ public class DialogueTrigger : MonoBehaviour
 
         // Respawn player at the new spawn point
         playerObject.transform.position = respawnPoint.position;
+
+        Debug.Log("Player respawned at respawn point: " + playerObject.transform.position);
     }
     //While detected if we interact start the dialogue
     /*private void Update()
