@@ -8,6 +8,7 @@ public class TangramTrigger : MonoBehaviour
     public List<GameObject> tangramPieces;
     public Transform respawnPoint;
 
+
     private bool puzzleComplete = false;
     private bool canvasOpened = false;
     private void OnTriggerStay(Collider other)
@@ -17,6 +18,7 @@ public class TangramTrigger : MonoBehaviour
             // Activate the tangram canvas
             tangramCanvas.gameObject.SetActive(true);
             canvasOpened = true;
+            GameEventManager.isPuzzling = true;
 
             // Disable this trigger object
             gameObject.SetActive(false);
@@ -48,6 +50,7 @@ public class TangramTrigger : MonoBehaviour
         // If puzzle is complete, deactivate the canvas and disable the object
         if (complete)
         {
+            GameEventManager.isPuzzling = false;
             tangramCanvas.gameObject.SetActive(false);
             Debug.Log("Tangram canvas disabled.");
         }

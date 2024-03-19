@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8726,6 +8726,12 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 238761449}
   m_SourcePrefab: {fileID: 100100000, guid: 221b4309d50298947897154b38e157e2, type: 3}
+--- !u!1 &534551673 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5816831381721158725, guid: 74dd8f060ce697742a1e873755bbe12f,
+    type: 3}
+  m_PrefabInstance: {fileID: 164387661}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &539860666
 GameObject:
   m_ObjectHideFlags: 0
@@ -27929,6 +27935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a997867969ac79498557ded1c2c3ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainGamePlayCamera: {fileID: 0}
   DebuggingText: {fileID: 651323842}
   sensitivity: 75000
   nextPageAnimator: {fileID: 574932857}
@@ -30131,6 +30138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a997867969ac79498557ded1c2c3ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainGamePlayCamera: {fileID: 0}
   DebuggingText: {fileID: 651323842}
   sensitivity: 75000
   nextPageAnimator: {fileID: 0}
@@ -39797,6 +39805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a997867969ac79498557ded1c2c3ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainGamePlayCamera: {fileID: 534551673}
   DebuggingText: {fileID: 651323842}
   sensitivity: 75000
   nextPageAnimator: {fileID: 1541019098}
@@ -40488,7 +40497,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.06666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 6c1f60af73d8ca5418ae9d0d5a30c48d, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 0ac24296560465b47874acc602bb0f84, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &4096251708132612822
 GameObject:

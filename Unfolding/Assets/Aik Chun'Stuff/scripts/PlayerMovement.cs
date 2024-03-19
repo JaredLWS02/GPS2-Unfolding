@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isRotate || GameEventManager.isTouchPage)
+        if (isRotate || GameEventManager.isTouchPage || GameEventManager.isPuzzling)
         {
             //if(GameEventManager.isTouchPage)
             //{

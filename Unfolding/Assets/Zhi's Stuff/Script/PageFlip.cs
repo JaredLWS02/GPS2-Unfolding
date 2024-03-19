@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class PageFlip : MonoBehaviour
 {
+    [SerializeField] private GameObject MainGamePlayCamera;
     [SerializeField] private TextMeshProUGUI DebuggingText;
     [SerializeField] private float sensitivity = 5000;
     [SerializeField] private Animator nextPageAnimator;
@@ -30,12 +31,15 @@ public class PageFlip : MonoBehaviour
 
     void Update()
     {
-        if (DebuggingText != null)
-            DebuggingText.text = GameEventManager.selectedPage;
-        GetTouch();
-        if (hit.collider != null)
+        if(!GameEventManager.isPuzzling && MainGamePlayCamera.transform.localEulerAngles.y == 0 )
         {
-            Flipping();
+            if (DebuggingText != null)
+                DebuggingText.text = GameEventManager.selectedPage;
+            GetTouch();
+            if (hit.collider != null)
+            {
+                Flipping();
+            }
         }
     }
 

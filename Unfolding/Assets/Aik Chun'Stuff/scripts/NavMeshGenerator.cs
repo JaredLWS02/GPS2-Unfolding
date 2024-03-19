@@ -17,7 +17,7 @@ public class NavMeshGenerator : MonoBehaviour
     {
         //doOnce = true;
 
-        if (nav != null)
+        if (nav.navMeshData != null)
         {
             nav.UpdateNavMesh(nav.navMeshData);
         }
