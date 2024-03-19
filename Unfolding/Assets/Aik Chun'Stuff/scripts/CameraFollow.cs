@@ -30,7 +30,7 @@ public class CameraFollow : MonoBehaviour
                 }
                 else
                 {
-                    transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, -16.2f, limit), 0.0f, transform.position.z);
+                    transform.position = new Vector3(Mathf.Clamp(smoothedPosition.x, -16.2f, limit), smoothedPosition.y, transform.position.z);
                 }
             }
             else

@@ -10,6 +10,7 @@ public class rotOnDrag : MonoBehaviour
     [SerializeField] private GameObject obj1;
     [SerializeField] private float rotationXSpeed;
     [SerializeField] private NavMeshSurface mesh;
+    [SerializeField] private NavMeshGenerator NavMeshGen;
     public float rotY, rotZ; 
     private float rotx;
     private float precision = 0.9999f;
@@ -26,7 +27,7 @@ public class rotOnDrag : MonoBehaviour
             if (Mathf.Abs(Quaternion.Dot(obj1.transform.rotation, targetAngle)) > precision)
             {
                 mesh.enabled = true;
-                //mesh.navMeshData = nav;
+                NavMeshGen.enabled = true;
                 mesh.UpdateNavMesh(mesh.navMeshData);
                 rotx = 0;
                 rotAble = true;
@@ -40,6 +41,7 @@ public class rotOnDrag : MonoBehaviour
         Debug.Log("Did rotate");
         if (rotAble == true)
         {
+            NavMeshGen.enabled = false;
             mesh.enabled = false;
             xVal = xVal - 120;
             targetAngle = Quaternion.Euler(-1 + xVal, rotY, rotZ);
@@ -52,8 +54,8 @@ public class rotOnDrag : MonoBehaviour
     {
         if (rotAble == true)
         {
+            NavMeshGen.enabled = false;
             mesh.enabled = false;
-
             xVal = xVal + 120;
             targetAngle = Quaternion.Euler(1 + xVal, rotY, rotZ);
             rotx = rotationXSpeed;
