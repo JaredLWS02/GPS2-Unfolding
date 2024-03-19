@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4440221, g: 0.49316514, b: 0.5722316, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6406,7 +6406,7 @@ PrefabInstance:
     - target: {fileID: 7256416894698272198, guid: 68364a2e49b34a240ac7263c4783ce48,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8068242801685589884, guid: 68364a2e49b34a240ac7263c4783ce48,
         type: 3}
@@ -8728,6 +8728,9 @@ MonoBehaviour:
   mainCam: {fileID: 164387662}
   cutSceneCam: {fileID: 1749791618}
   cutScene: {fileID: 1056341850}
+  anim1: {fileID: 0}
+  anim2: {fileID: 0}
+  anim3: {fileID: 0}
 --- !u!1 &1056613268
 GameObject:
   m_ObjectHideFlags: 0
@@ -20729,6 +20732,9 @@ MonoBehaviour:
   objt: {fileID: 2437360734297709535}
   rotY: 0
   rotZ: 0
+  mesh: {fileID: 0}
+  NavMeshGen: {fileID: 0}
+  updateNavMesh: 0
 --- !u!65 &1091170887819570673
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33957,6 +33963,7 @@ MonoBehaviour:
   obj1: {fileID: 3921889315288137643}
   rotationXSpeed: 5
   mesh: {fileID: 0}
+  NavMeshGen: {fileID: 0}
   rotY: 90
   rotZ: 0
   rotS: {fileID: 2342296273347394885}
@@ -38332,6 +38339,7 @@ MonoBehaviour:
   obj1: {fileID: 2878839184169169587}
   rotationXSpeed: 5
   mesh: {fileID: 0}
+  NavMeshGen: {fileID: 0}
   rotY: 90
   rotZ: 0
   rotS: {fileID: 3932956041973511146}
@@ -38618,6 +38626,7 @@ MonoBehaviour:
   obj1: {fileID: 6683190565832157983}
   rotationXSpeed: 5
   mesh: {fileID: 0}
+  NavMeshGen: {fileID: 0}
   rotY: 90
   rotZ: 0
   rotS: {fileID: 4858023871237106093}
@@ -41663,6 +41672,9 @@ MonoBehaviour:
   objt: {fileID: 8459727600117043839}
   rotY: 0
   rotZ: 0
+  mesh: {fileID: 0}
+  NavMeshGen: {fileID: 0}
+  updateNavMesh: 0
 --- !u!23 &6490177602565227346
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -41831,6 +41843,9 @@ MonoBehaviour:
   objt: {fileID: 8493316956695090797}
   rotY: 0
   rotZ: 0
+  mesh: {fileID: 0}
+  NavMeshGen: {fileID: 0}
+  updateNavMesh: 0
 --- !u!4 &6537184244589169106
 Transform:
   m_ObjectHideFlags: 0
