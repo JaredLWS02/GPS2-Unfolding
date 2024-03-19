@@ -8,6 +8,7 @@ public class SlidingPuzzleHandler : MonoBehaviour
 {
   [SerializeField] private Transform gameTransform;
   [SerializeField] private Transform piecePrefab;
+    public bool win = false;
 
   private List<Transform> pieces;
   private int emptyLocation;
@@ -128,6 +129,7 @@ public class SlidingPuzzleHandler : MonoBehaviour
             {
                 if (pieces[i].name != $"{i}")
                 {
+                    win = true;
                     return false;
                 }
             }
@@ -170,6 +172,17 @@ public class SlidingPuzzleHandler : MonoBehaviour
     {
         GameEventManager.isTouchObject = false;
         this.gameObject.SetActive (false);
+    }
+
+    public void ISuck()
+    {
+        size = 3;
+        Shuffle();
+    }
+    public void DamnISuck()
+    {
+        win = true;
+        this.gameObject.SetActive(false);
     }
 }
 
