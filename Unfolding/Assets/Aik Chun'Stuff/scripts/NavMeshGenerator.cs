@@ -33,11 +33,12 @@ public class NavMeshGenerator : MonoBehaviour
         if (PageFlip.flipped == true && doOnce == false)
         {
             Debug.Log("generated nav mesh");
-            //if(!nav.isActiveAndEnabled)
-            //{
+            if (!nav.isActiveAndEnabled)
+            {
                 StartCoroutine(enableNavMesh());
-            //
-            doOnce = true;
+            }
+
+                doOnce = true;
         }
         else if (PageFlip.flipped == false && doOnce == true)
         {
