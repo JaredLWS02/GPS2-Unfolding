@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -15,8 +16,14 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool playerDetected;
     private bool dialogueInProgress;
+    private NavMeshAgent playerNavMeshAgent; // Reference to the player's NavMeshAgent
     //private Vector3 originalPlayerPosition; // To store the original position of the player
 
+    private void Start()
+    {
+        // Get reference to the NavMeshAgent component
+        playerNavMeshAgent = playerObject.GetComponent<NavMeshAgent>();
+    }
     //Detect trigger with player
     private void OnTriggerEnter(Collider collision)
     {
@@ -55,23 +62,29 @@ public class DialogueTrigger : MonoBehaviour
 
     public void StartDialogue()
     {
-        playerDetected = true;
-        dialogueInProgress = true;
-        dialogueScript.ToggleIndicator(playerDetected);
-        // Activate NPC camera
-        npcCamera.gameObject.SetActive(true);
-        // Deactivate main camera
-        mainCamera.gameObject.SetActive(false);
-        // Start dialogue immediately
-        dialogueScript.StartDialogue();
+        if (!dialogueInProgress)
+        {
+            playerDetected = true;
+            dialogueInProgress = true;
+            dialogueScript.ToggleIndicator(playerDetected);
+            // Activate NPC camera
+            npcCamera.gameObject.SetActive(true);
+            // Deactivate main camera
+            mainCamera.gameObject.SetActive(false);
+            // Start dialogue immediately
+            dialogueScript.StartDialogue();
 
-        Debug.Log("Player position before dialogue: " + playerObject.transform.position);
+            Debug.Log("Player position before dialogue: " + playerObject.transform.position);
 
-        // Position the player at the dialoguePlayerPosition
-        playerObject.transform.position = dialoguePlayerPosition.position;
+            // Disable NavMeshAgent
+            playerNavMeshAgent.enabled = false;
 
-        // Disable player collider
-        playerCollider.enabled = false;
+            // Position the player at the dialoguePlayerPosition
+            playerObject.transform.position = dialoguePlayerPosition.position;
+
+            // Disable player collider
+            playerCollider.enabled = false;
+        }
     }
     private void EndDialogue()
     {
@@ -82,12 +95,9 @@ public class DialogueTrigger : MonoBehaviour
     private void OnTriggerExit(Collider collision)
     {
         //if we lost trigger with the player disable player detected and hide indicator
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !dialogueInProgress)
         {
-            if (!dialogueInProgress)
-            {
-                enablePlayer();
-            }
+            EndDialogue();
         }
     }
 
@@ -109,6 +119,9 @@ public class DialogueTrigger : MonoBehaviour
         mainCamera.gameObject.SetActive(true);
         // Deactivate NPC camera
         npcCamera.gameObject.SetActive(false);
+
+        // Re-enable NavMeshAgent
+        playerNavMeshAgent.enabled = true;
 
         // Re-enable player object and its collider
         playerObject.SetActive(true);
