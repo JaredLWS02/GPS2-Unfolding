@@ -34,11 +34,16 @@ public class UiTween : MonoBehaviour
     [SerializeField] private Image panel;
     [SerializeField] private float blackenSpeed;
 
+    public bool playUI;
 
     // Start is called before the first frame update
     void Start()
     {
-        setObjectPos();
+        UnBlackenScreenTransition();
+        if(playUI)
+        {
+            setObjectPos();
+        }
     }
 
 
@@ -104,17 +109,17 @@ public class UiTween : MonoBehaviour
         //    QuitButton.SetActive(true);
         //}
 
-        LeanTween.moveLocalX(playButton, 234, buttonSpeed).setEase(MainMenutype).setOnComplete(moveOption);
+        LeanTween.moveLocalX(playButton, 266, buttonSpeed).setEase(MainMenutype).setOnComplete(moveOption);
     }
 
     private void moveOption()
     {
-        LeanTween.moveLocalX(OptionButton, 255, buttonSpeed).setEase(MainMenutype).setOnComplete(moveQuit);
+        LeanTween.moveLocalX(OptionButton, 280, buttonSpeed).setEase(MainMenutype).setOnComplete(moveQuit);
     }
 
     private void moveQuit()
     {
-        LeanTween.moveLocalX(QuitButton, 236, buttonSpeed).setEase(MainMenutype);
+        LeanTween.moveLocalX(QuitButton, 255, buttonSpeed).setEase(MainMenutype);
 
     }
 

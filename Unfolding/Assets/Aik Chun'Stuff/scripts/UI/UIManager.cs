@@ -40,10 +40,10 @@ public class UIManager : MonoBehaviour
 
     private bool running;
 
-    private void Start()
-    {
-        tween.UnBlackenScreenTransition();
-    }
+    //private void Start()
+    //{
+    //    tween.UnBlackenScreenTransition();
+    //}
     public void StartGame()
     {
         StartCoroutine(playGame());

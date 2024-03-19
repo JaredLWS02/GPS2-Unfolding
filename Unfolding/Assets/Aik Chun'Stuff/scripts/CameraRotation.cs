@@ -35,7 +35,7 @@ public class CameraRotation : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if(!GameEventManager.isTouchObject && !GameEventManager.isTouchPage)
+        if(!GameEventManager.isTouchObject && !GameEventManager.isTouchPage && !GameEventManager.isPuzzling)
         {
             if (!isRotating && !pm.isMoving)
             {

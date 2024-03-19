@@ -12,6 +12,8 @@ public class GameEventManager : MonoBehaviour
     public static bool isTouchPage;
     public static string selectedPage;
 
+    public static bool isPuzzling;
+
     private void Start()
     {
         isTouchObject = false;
