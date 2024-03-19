@@ -311,7 +311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &27757239
 Transform:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebuggingText: {fileID: 651323842}
   sensitivity: 75000
-  nextPageAnimator: {fileID: 0}
+  nextPageAnimator: {fileID: 2125758946}
   prevPageAnimator: {fileID: 1477983904}
 --- !u!65 &27757241
 BoxCollider:
@@ -1414,7 +1414,7 @@ PrefabInstance:
     - target: {fileID: 5816831381721158725, guid: 74dd8f060ce697742a1e873755bbe12f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5709,7 +5709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &680420508
 Transform:
   m_ObjectHideFlags: 0
@@ -5719,7 +5719,7 @@ Transform:
   m_GameObject: {fileID: 680420507}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.42, y: -0.2, z: 0.24000001}
+  m_LocalPosition: {x: 12.42, y: -0.2, z: 0.24}
   m_LocalScale: {x: 24.75, y: 0.1, z: 15.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8228,7 +8228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1006510661
 Transform:
   m_ObjectHideFlags: 0
@@ -9373,7 +9373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1190688276
 Transform:
   m_ObjectHideFlags: 0
@@ -10341,7 +10341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1313535991
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10741,7 +10741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1375311066
 Transform:
   m_ObjectHideFlags: 0
@@ -11327,7 +11327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1471082213
 Transform:
   m_ObjectHideFlags: 0
@@ -12001,7 +12001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1541019097
 Transform:
   m_ObjectHideFlags: 0
@@ -13953,7 +13953,7 @@ PrefabInstance:
     - target: {fileID: 9155664515878050086, guid: 32f8dd3623627fb4f8a59c061ad4c090,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14050,7 +14050,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1937044277
 Transform:
   m_ObjectHideFlags: 0
@@ -14061,7 +14061,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.3479, y: -0.1, z: -0.2220159}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 84749969}
@@ -15019,7 +15019,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2f4983ad8816bda4588302d2c4b3265d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16172,7 +16172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2125758945
 Transform:
   m_ObjectHideFlags: 0
@@ -19526,7 +19526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &731829534924127182
 Transform:
   m_ObjectHideFlags: 0
@@ -48467,7 +48467,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 20df07cf98a2d9b41b73837aa0e49a36, type: 2}
+  - {fileID: 2100000, guid: 11dbda21fba496d4cb18bd2000995921, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
