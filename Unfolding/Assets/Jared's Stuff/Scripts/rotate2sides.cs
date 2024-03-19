@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class rotate2sides : MonoBehaviour
@@ -11,6 +12,10 @@ public class rotate2sides : MonoBehaviour
     private float xVal = 0;
     private Quaternion targetAngle;
     [SerializeField] private float rotY, rotZ;
+    [SerializeField] private NavMeshSurface mesh;
+    [SerializeField] private NavMeshGenerator NavMeshGen;
+
+    public bool updateNavMesh;
 
     private void Update()
     {
@@ -19,6 +24,13 @@ public class rotate2sides : MonoBehaviour
             objt.transform.Rotate(rot, 0, 0);
             if (Mathf.Abs(Quaternion.Dot(objt.transform.rotation, targetAngle)) > precision)
             {
+                if(updateNavMesh)
+                {
+                    mesh.enabled = true;
+                    NavMeshGen.enabled = true;
+
+                    mesh.UpdateNavMesh(mesh.navMeshData);
+                }
                 rot = 0;
                 rotatable = true;
             }
@@ -30,6 +42,12 @@ public class rotate2sides : MonoBehaviour
         Debug.Log("Did rotate");
         if (rotatable == true)
         {
+            if (updateNavMesh)
+            {
+                NavMeshGen.enabled = false;
+
+                mesh.enabled = false;
+            }
             xVal = xVal - 180;
             targetAngle = Quaternion.Euler(-1 + xVal, rotY, rotZ);
             rot = -2f;
@@ -42,6 +60,11 @@ public class rotate2sides : MonoBehaviour
         Debug.Log("Did rotate");
         if (rotatable == true)
         {
+            if (updateNavMesh)
+            {
+                NavMeshGen.enabled = false;
+                mesh.enabled = false;
+            }
             xVal = xVal + 180;
             targetAngle = Quaternion.Euler(1 + xVal, rotY, rotZ);
             rot = 2f;

@@ -7,6 +7,7 @@ public class TangramTrigger : MonoBehaviour
     public Canvas tangramCanvas;
     public List<GameObject> tangramPieces;
     public Transform respawnPoint;
+    public GameObject cutsceenTrigger;
 
 
     private bool puzzleComplete = false;
@@ -52,6 +53,7 @@ public class TangramTrigger : MonoBehaviour
         {
             GameEventManager.isPuzzling = false;
             tangramCanvas.gameObject.SetActive(false);
+            cutsceenTrigger.SetActive(true);
             Debug.Log("Tangram canvas disabled.");
         }
     

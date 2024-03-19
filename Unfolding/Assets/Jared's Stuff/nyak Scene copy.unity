@@ -7999,6 +7999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a997867969ac79498557ded1c2c3ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainGamePlayCamera: {fileID: 0}
   DebuggingText: {fileID: 651323842}
   sensitivity: 75000
   nextPageAnimator: {fileID: 574932857}
@@ -8578,6 +8579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a997867969ac79498557ded1c2c3ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainGamePlayCamera: {fileID: 0}
   DebuggingText: {fileID: 651323842}
   sensitivity: 75000
   nextPageAnimator: {fileID: 0}
@@ -11882,6 +11884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a997867969ac79498557ded1c2c3ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainGamePlayCamera: {fileID: 164387662}
   DebuggingText: {fileID: 651323842}
   sensitivity: 75000
   nextPageAnimator: {fileID: 1541019098}
