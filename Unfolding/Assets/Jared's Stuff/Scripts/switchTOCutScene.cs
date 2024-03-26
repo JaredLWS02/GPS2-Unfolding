@@ -31,8 +31,6 @@ public class switchTOCutScene : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            frog.GetComponent<NavMeshAgent>().enabled = false;
-            frog.transform.position = respawnPoint.position;
             StartCoroutine(transition());
         }
     }
@@ -41,9 +39,11 @@ public class switchTOCutScene : MonoBehaviour
     {
         NavMeshHit hit;
 
-        mainCam.SetActive(false);
         ui.BlackenScreenTransition();
         yield return new WaitForSecondsRealtime(0.5f);
+        frog.GetComponent<NavMeshAgent>().enabled = false;
+        frog.transform.position = respawnPoint.position;
+        mainCam.SetActive(false);
         ui.UnBlackenScreenTransition(0.3f);
         cutSceneCam.SetActive(true);
         cutScene.SetActive(true);

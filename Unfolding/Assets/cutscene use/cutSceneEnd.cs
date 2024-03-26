@@ -31,9 +31,9 @@ public class cutSceneEnd : MonoBehaviour
 
     private IEnumerator transition()
     {
-        cutSceneCam.SetActive(false);
         ui.BlackenScreenTransition();
         yield return new WaitForSecondsRealtime(0.5f);
+        cutSceneCam.SetActive(false);
         ui.UnBlackenScreenTransition(0.3f);
         mainCam.SetActive(true);
         anim1.enabled = false;
