@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Aik Chun'Stuff/Nyak Test Scene (With UI).unity
     guid: 6232998824376b1418debd274a2bb50c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Zhi's Stuff/Main Scene.unity
     guid: ead91101da737bc469f494ccd9a4cbb8
   m_configObjects:
